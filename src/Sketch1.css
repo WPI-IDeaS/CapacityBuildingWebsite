@@ -1,0 +1,274 @@
+body > #root > div {
+  height: 100vh;
+}
+
+.App {
+  margin-left: 160px;
+
+  background-color: #FEF9EF;
+  z-index: 2;
+}
+
+.App-nobar {
+  background-color: #FEF9EF;
+  overflow-x: hidden;
+  padding: 2%;
+
+  box-sizing: border-box;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.app-shadow {
+  filter: drop-shadow(0px 0px 2px rgba(40, 44, 52, 0.5));
+  z-index: 0;
+
+  background-color: #FEF9EF;
+
+  padding: 10px;
+
+  top: 0;
+  left: 160px;
+
+  overflow-x: hidden;
+}
+
+.definable {
+  display: inline;
+  color: #227C9D;
+  font-weight: bold;
+
+  visibility: visible;
+}
+
+.definable-hovered {
+  display: inline;
+  color: #17C3B2;
+  font-weight: bold;
+  text-decoration-line: underline;
+
+  visibility: visible;
+}
+
+.definition {
+  color: blueviolet;
+  visibility: hidden;
+  font-weight: normal;
+
+  padding: 0%;
+  margin: 0%;
+
+  position: static;
+}
+
+.definition-hovered {
+  color: blueviolet;
+  visibility: visible;
+  font-weight: normal;
+
+  padding: 0%;
+  margin: 0%;
+  filter: drop-shadow(4px 4px 0px #227c9d);
+
+  position: static;
+  
+  /*transform: translate(0%, 40%);*/
+  z-index: 3;
+}
+
+.def-box {
+  position: absolute;
+  width: 500px;
+  height: 150px;
+
+  top: -60px;
+  left: 50px;
+
+  padding: 0%;
+  margin: 0%;
+}
+
+.def-blurb {
+  height: 100%;
+  text-align: left;
+  padding: 8px;
+
+  width: fit-content;
+  color: #FEF9EF;
+  background-color: #17C3B2;
+  box-sizing: border-box;
+}
+
+.def-styled {
+  height: 150px;
+  fill: #17C3B2;
+  position: absolute;
+  top: -60px;
+}
+
+.titlefloat {
+  font-size: 80pt;
+  width: auto;
+  text-align: right;
+  padding-top: 20px;
+  padding-right: 10px;
+
+  color: #17C3B2;
+
+  font-family: 'Lexend', sans-serif;
+  text-shadow: 4px 4px 0px #227c9d;
+}
+
+.titleshape {
+  position: fixed;
+  top: -95px;
+  left: -5px;
+  z-index: 2;
+
+  filter: drop-shadow(4px 4px 0px #227c9d);
+
+  width: 100%;
+  pointer-events: none;
+}
+
+.titleshape-styled {
+  height: auto;
+  fill: #17C3B2;
+  transform: translate(0px, 84px);
+}
+
+.titleshape-box {
+  position: absolute;
+  width: 100%;
+  height: 84px;
+}
+
+.titleshape-blurb {
+  font-size: 36pt;
+  height: 100%;
+  text-align: left;
+  padding: 4px;
+  padding-top: 12px;
+  padding-left: 20px;
+
+  width: fit-content;
+  color: #FEF9EF;
+  background-color: #17C3B2;
+  box-sizing: border-box;
+
+  font-family: 'Lexend', sans-serif;
+  text-shadow: 4px 4px 0px #227c9d;
+
+  pointer-events: auto;
+
+  display: inline-block;
+}
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.App-sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 160px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 0; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #17C3B2; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  align-content: right;
+
+  padding-top: 79px;
+}
+
+.App-sidenav a {
+  height: 120px; /* Full-height: remove this if you want "auto" height */
+  width: 70%; /* Set the width of the sidebar */
+  z-index: 1; /* Stay on top */
+  background-color: #FEF9EF;
+
+  padding-left: 8px;
+  padding-top: 8px;
+  padding-right: 12px;
+  padding-bottom: 12px;
+
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+
+  filter: drop-shadow(3px 3px 2px rgba(40, 44, 52, 0.2));
+}
+
+.sidenav-icon {
+  height: 100%;
+  width: 100%;
+}
+
+.sidenav-icon.shadow-blue {
+  filter: drop-shadow(4px 4px 0px #227C9D);
+}
+
+.sidenav-icon.shadow-green {
+  filter: drop-shadow(4px 4px 0px #17C3B2);
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.App-p {
+  color: #FF0000;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 18px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #17c3b2;
+  box-shadow: inset 2px 0px 2px rgba(40, 44, 52, 0.2);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #FEF9EF;
+  border-radius: 10px;
+  border-width: 0;
+
+  box-shadow: inset -1px 0px 4px 2px #17C3B4,
+  inset 0 0 0 4.7px /*rgba(40, 44, 52, 1.0)*/ rgb(25, 158, 147);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FFCB77; 
+}
