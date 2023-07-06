@@ -5,6 +5,8 @@ import questionmark from './icons/questionmark.png';
 import check from './icons/check.png';
 import scale from './icons/scale.png';
 import clipboard from './icons/clipboard.png';
+import Sidebar from './Sidebar';
+
 
 const defMap = {
   "PRESCRIPTIVE": <span>This is a sample definition. This is a sample definition. This is a sample definition. This is a sample definition. This is a sample definition. This is a sample definition. This is a sample definition. This is a sample definition.</span>,
@@ -45,7 +47,7 @@ function titleFloat(title) {
 
 function defBubble(tag) {
   return (
-    <div className='definition' data-def-tag={tag}>
+    <div className='definition' data-def-tag={tag} key={tag}>
       <span className='def-box'>
         <div className='def-blurb'>
           {defMap[tag.toUpperCase()]}
@@ -141,7 +143,7 @@ function makeAllDefBubbles() {
 
 function Sketch() {
   return (
-    Directory()
+    Planning()
   );
 }
 
@@ -191,27 +193,14 @@ function Planning() {
       hasCollected = true;
     }
   }, []);
-  
+
   return (
     <div className="App">
-      <div className="App-sidenav">
-        <a href="#">
-          <img src={questionmark} alt="About" className="sidenav-icon shadow-green"/>
-        </a>
-        <a href="#">
-          <img src={scale} alt="Principles" className="sidenav-icon shadow-blue"/>
-        </a>
-        <a href="#">
-          <img src={clipboard} alt="Planning" className="sidenav-icon shadow-blue"/>
-        </a>
-        <a href="#">
-          <img src={check} alt="Doing" className="sidenav-icon shadow-blue"/>
-        </a>
-      </div>
+      <Sidebar />
       <header className="App-header">
       </header>
       {makeAllDefBubbles()}
-      {titleBubble("Planning Capacity Building")}
+      {/*titleBubble("Planning Capacity Building")*/}
       <div className='mentor' onClick={toggleAllDefs}>
 
       </div>

@@ -1,9 +1,13 @@
+:root {
+  --sidenav-width: 300px;
+}
+
 body > #root > div {
   height: 100vh;
 }
 
 .App {
-  margin-left: 160px;
+  margin-left: var(--sidenav-width);
 
   background-color: #FEF9EF;
   z-index: 2;
@@ -37,7 +41,7 @@ body > #root > div {
   padding: 10px;
 
   top: 0;
-  left: 160px;
+  left: var(--sidenav-width);
 
   overflow-x: hidden;
 }
@@ -105,7 +109,7 @@ body > #root > div {
   position: absolute;
   width: 1000px;
   height: 500px;
-  left: calc(160px + 4vh);
+  left: calc(var(--sidenav-width) + 4vh);
   top: calc(83px + 4vh);
 }
 
@@ -208,9 +212,60 @@ body > #root > div {
   z-index: 6;
 }
 
+.sidenav-acc {
+  padding: 0%;
+}
+
+.sidenav-acchead {
+  margin-bottom: 5%;
+  font-size: small;
+  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.sidenav-accbody {
+  padding: 0%;
+  padding-left: 10%;
+}
+
+.sidenav-accitem {
+  border-width: 0px;
+  background-color: transparent;
+}
+
+.sidenav-accdropdown {
+  padding: 2%;
+  background-color: transparent;
+  display: inline-flex;
+
+  height: 25px;
+  width: 27.2px;
+
+  box-shadow: 0 0 0 0 transparent;
+  border-radius: 10% !important;
+}
+
+.sidenav-accbutton {
+  padding: 2%;
+  background-color: transparent;
+  width: 80%;
+  float: right;
+}
+
+/*.accordion-button::after {
+  font-family: 'FontAwesome';  
+  content: "\f068";
+  float: right; 
+}
+.accordion-button:not(.collapsed)::after {
+  content: "\f067";
+}*/
+
 .App-sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 160px; /* Set the width of the sidebar */
+  width: var(--sidenav-width); /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 0; /* Stay on top */
   top: 0; /* Stay at the top */
@@ -220,30 +275,6 @@ body > #root > div {
   align-content: right;
 
   padding-top: 79px;
-}
-
-.App-sidenav a {
-  height: 120px; /* Full-height: remove this if you want "auto" height */
-  width: 70%; /* Set the width of the sidebar */
-  z-index: 1; /* Stay on top */
-  background-color: #FEF9EF;
-
-  padding-left: 8px;
-  padding-top: 8px;
-  padding-right: 12px;
-  padding-bottom: 12px;
-
-  margin-top: 15px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 10px;
-
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-
-  filter: drop-shadow(3px 3px 2px rgba(40, 44, 52, 0.2));
 }
 
 .sidenav-icon {
