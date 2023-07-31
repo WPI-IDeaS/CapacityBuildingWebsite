@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/CapacityBuildingWebsite/static/css/main.04f1f178.css",
-    "main.js": "/CapacityBuildingWebsite/static/js/main.44902d1d.js",
+    "main.js": "/CapacityBuildingWebsite/static/js/main.ca22e98d.js",
     "static/js/496.afa2f07b.chunk.js": "/CapacityBuildingWebsite/static/js/496.afa2f07b.chunk.js",
     "index.html": "/CapacityBuildingWebsite/index.html",
     "static/media/caret.svg": "/CapacityBuildingWebsite/static/media/caret.21e79d5f9960a7e04f2c.svg",
     "main.04f1f178.css.map": "/CapacityBuildingWebsite/static/css/main.04f1f178.css.map",
-    "main.44902d1d.js.map": "/CapacityBuildingWebsite/static/js/main.44902d1d.js.map",
+    "main.ca22e98d.js.map": "/CapacityBuildingWebsite/static/js/main.ca22e98d.js.map",
     "496.afa2f07b.chunk.js.map": "/CapacityBuildingWebsite/static/js/496.afa2f07b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.04f1f178.css",
-    "static/js/main.44902d1d.js"
+    "static/js/main.ca22e98d.js"
   ]
 }
