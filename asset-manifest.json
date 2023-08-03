@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/CapacityBuildingWebsite/static/css/main.19eab1e8.css",
-    "main.js": "/CapacityBuildingWebsite/static/js/main.684c15b4.js",
+    "main.css": "/CapacityBuildingWebsite/static/css/main.98baff82.css",
+    "main.js": "/CapacityBuildingWebsite/static/js/main.8ca58b11.js",
     "static/js/496.afa2f07b.chunk.js": "/CapacityBuildingWebsite/static/js/496.afa2f07b.chunk.js",
     "index.html": "/CapacityBuildingWebsite/index.html",
     "static/media/caret.svg": "/CapacityBuildingWebsite/static/media/caret.21e79d5f9960a7e04f2c.svg",
-    "main.19eab1e8.css.map": "/CapacityBuildingWebsite/static/css/main.19eab1e8.css.map",
-    "main.684c15b4.js.map": "/CapacityBuildingWebsite/static/js/main.684c15b4.js.map",
+    "main.98baff82.css.map": "/CapacityBuildingWebsite/static/css/main.98baff82.css.map",
+    "main.8ca58b11.js.map": "/CapacityBuildingWebsite/static/js/main.8ca58b11.js.map",
     "496.afa2f07b.chunk.js.map": "/CapacityBuildingWebsite/static/js/496.afa2f07b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.19eab1e8.css",
-    "static/js/main.684c15b4.js"
+    "static/css/main.98baff82.css",
+    "static/js/main.8ca58b11.js"
   ]
 }
