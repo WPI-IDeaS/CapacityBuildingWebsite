@@ -1,98 +1,144 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect} from 'react';
 import './Sketch3.css';
+import {siteDirectory} from './Directory';
+import {Link} from "react-router-dom";
+import {Collapse} from '../node_modules/bootstrap/dist/js/bootstrap.bundle.js';
+import {isBookmarked} from "./UserDataManager";
 
-
-class sndObject {
-  constructor(label, link, childObjs) {
-    this.label = label;
-    this.link = link;
-    this.children = childObjs;
-  }
-}
-
-const sidenavDirectory = [
-  sbi("About", "-link-", [
-    sbi("What is Capacity Building?", "-link-"),
-    sbi("Why do Capacity Building?", "-link-")
-  ]),
-  sbi("Principles", "-link-", [
-    sbi("Humility", "-link-"),
-    sbi("Center the People", "-link-"),
-    sbi("Focus on Design, Not Outcomes", "-link-"),
-    sbi("Trust the Team", "-link-")
-  ]),
-  sbi("Phases", "-link-", [
-    sbi("Planning", "-link-", [
-      sbi("Choosing Capacity Building Over Staffing a Change Project", "-link-"),
-      sbi("Allocating Resources and Budgeting", "-link-"),
-      sbi("Building Your Team", "-link-")
-    ]),
-    sbi("Doing", "-link-"),
-    sbi("Extending", "-link-")
-  ]),
-];
-
-function sbi(label, link, childObjs=null) {
-  return new sndObject(label, link, childObjs);
-}
+import Bookmark from './images/icons/bookmark.svg'
+import search from "./images/icons/search.png";
 
 function sbAcc(item, id, parentId) {
-  let childItems = sbProcessChildren(item.children, id);
+    const useParent = false;
 
-  let drop = "";
-  if(item.children != null) {
-    drop = <button className="accordion-button sidenav-accdropdown collapsed" type="button" data-bs-toggle="collapse" data-bs-target={"#collapse_" + id} aria-expanded="false" aria-controls={"collapse_" + id}></button>;
-  }
-  else {
-    drop = <div className="sidenav-accdropdown"></div>;
-  }
+    let childItems = sbProcessChildren(item.children, id);
 
-  return (
-    <div className="accordion-item sidenav-accitem" key={id}>
-      <h2 className="accordion-header sidenav-acchead" id={"heading_" + id}>
-        {drop}
-        <a href={item.link}>{item.label} - {id}</a>
-      </h2>
-      <div id={"collapse_" + id} className="accordion-collapse collapse" aria-labelledby={"heading_" + id} data-bs-parent={"#sideNavAccordion_" + parentId}>
-        <div className="accordion-body sidenav-accbody">
-          <div className="accordion sidenav-acc" id={"sideNavAccordion_" + id}>
-            {childItems}
-          </div>
+    let drop = "";
+    if(item.children !== null) {
+        drop = <button className="accordion-button sidenav-accdropdown collapsed" type="button" data-bs-toggle="collapse" data-bs-target={"#collapse_" + id} aria-expanded="false" aria-controls={"collapse_" + id}></button>;
+    }
+    else {
+        drop = <div className="sidenav-accdropdown"></div>;
+    }
+
+    let bookmarker = <img className="sidenav-bookmark" src={Bookmark} alt="Bookmark" width={12} data-page-save-query-path={item.expandedLink} style={{display: isBookmarked(item.expandedLink)? "block":"none"}}/>;
+
+    return (
+        <div className="accordion-item sidenav-accitem" key={id}>
+            <b className="accordion-header sidenav-acchead" id={"heading_" + id}>
+                {drop}
+                <Link style={{fontWeight: parentId == ""? 700:500}} to={item.expandedLink}>{item.label}</Link>
+                {bookmarker}
+            </b>
+            <div id={"collapse_" + id} className="accordion-collapse collapse" aria-labelledby={"heading_" + id} data-bs-parent={useParent? ("#sideNavAccordion_" + parentId):""}>
+                <div className="accordion-body sidenav-accbody">
+                    <div className="accordion sidenav-acc" id={"sideNavAccordion_" + id}>
+                        {childItems}
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 }
 
 function sbProcessChildren(children, id) {
-  const items = [];
-  const connector = id == ""? "" : ".";
-  if(children != null) {
-    let index = 1;
-    for(const child of children) {
-      items.push(sbAcc(child, id + connector + index++, id));
+    const items = [];
+    const connector = id === ""? "" : ".";
+    if(children !== null) {
+        let index = 1;
+        for(const child of children) {
+            items.push(sbAcc(child, id + connector + index++, id));
+        }
     }
-  }
 
-  return items;
+    return items;
 }
 
-function makeDirectory() {
-
+function meetsSearchterm(content, term) {
+    if (term == "") return false;
+    return content.includes(term);
 }
 
-function makeDirectoryHelper() {
+function searchHelper(currentAcc, sch) {
+    let openParent = false;
+    for (const child of currentAcc.children) {
+        const cont = child.querySelector("a");
+        const coll = child.querySelector(".collapse");
+        const collBS = Collapse.getInstance(coll);
+        console.log(collBS);
+        if (meetsSearchterm(cont.innerHTML.toLowerCase(), sch)) {
+            cont.classList.add("search-selected");
+            openParent = true;
+        }
+        else {
+            cont.classList.remove("search-selected");
+        }
 
+        const nextAcc = coll.querySelector('.sidenav-acc');
+        if (nextAcc != null && nextAcc.children.length > 0) {
+            if (searchHelper(nextAcc, sch)) {
+                collBS.show();
+                openParent = true;
+            }
+            else {
+                collBS.hide();
+            }
+        }
+    }
+
+    return openParent;
+}
+
+function searchBar(e) {
+    const sch = e.target.value.toLowerCase();
+    //console.log(sch);
+
+    const topAcc = document.getElementById('sideNavAccordion_');
+    topAcc.classList.add("animations-disabled");
+
+    if (sch == "") {
+        topAcc.classList.remove("mid-search");
+    }
+    else {
+        topAcc.classList.add("mid-search");
+    }
+
+    searchHelper(topAcc, sch);
+}
+
+function putNavAnimationBack() {
+    const topAcc = document.getElementById('sideNavAccordion_');
+    topAcc.classList.remove("animations-disabled");
 }
 
 function Sidebar() {
-  return (
-    <div className="App-sidenav">
-      <div className="accordion" id="sideNavAccordion_">
-        {sbProcessChildren(sidenavDirectory, "")}
-      </div>
-    </div>
-  );
+    useEffect(() => {
+        for (const acc of document.querySelectorAll(".collapse")) {
+            new Collapse(acc, {
+                toggle: false
+            });
+        }
+    }, []);
+
+    return (
+        <div className="App-sidenav">
+            <div className="sidenav-title">
+                Quick Access
+                <div className="search">
+                    <img src={search} height="27px" style={{float: "left", filter: "var(--pal-icon-filter)"}}/>
+                    <input onKeyUp={searchBar} onBlur={putNavAnimationBack} type="text" name="search" placeholder="Search sections..." />
+                </div>
+            </div>
+            <div className="left-scroll-outer">
+                <div className="left-scroll-inner">
+                    <br/>
+                    <div className="accordion sidenav-top-acc" id="sideNavAccordion_">
+                        {sbProcessChildren(siteDirectory, "")}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default Sidebar;

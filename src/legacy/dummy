@@ -1,0 +1,451 @@
+"use strict";
+globalThis["webpackHotUpdatecdn_test"]("main",{
+
+/***/ "./src/MindMap.js":
+/*!************************!*\
+  !*** ./src/MindMap.js ***!
+  \************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _MindMap_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MindMap.css */ "./src/MindMap.css");
+/* harmony import */ var _Directory__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Directory */ "./src/Directory.js");
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-dev-runtime */ "./node_modules/react/jsx-dev-runtime.js");
+/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
+
+var _jsxFileName = "C:\\Users\\jcuno\\Desktop\\IMGD\\job\\CapacityBuildingWebsite\\src\\MindMap.js";
+
+//import './Sketch3.css';
+
+
+
+function sbAcc(item, id, parentId) {
+  let childItems = sbProcessChildren(item.children, id);
+  let drop = "";
+  if (item.children != null) {
+    drop = /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)("button", {
+      className: "accordion-button sidenav-accdropdown collapsed",
+      type: "button",
+      "data-bs-toggle": "collapse",
+      "data-bs-target": "#collapse_" + id,
+      "aria-expanded": "false",
+      "aria-controls": "collapse_" + id
+    }, void 0, false, {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 12
+    }, this);
+  } else {
+    drop = /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)("div", {
+      className: "sidenav-accdropdown"
+    }, void 0, false, {
+      fileName: _jsxFileName,
+      lineNumber: 14,
+      columnNumber: 12
+    }, this);
+  }
+  return /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)("div", {
+    className: "accordion-item sidenav-accitem",
+    children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)("h2", {
+      className: "accordion-header sidenav-acchead",
+      id: "heading_" + id,
+      children: [drop, /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)("a", {
+        href: item.link,
+        children: [item.label, " - ", id]
+      }, void 0, true, {
+        fileName: _jsxFileName,
+        lineNumber: 21,
+        columnNumber: 9
+      }, this)]
+    }, void 0, true, {
+      fileName: _jsxFileName,
+      lineNumber: 19,
+      columnNumber: 7
+    }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)("div", {
+      id: "collapse_" + id,
+      className: "accordion-collapse collapse",
+      "aria-labelledby": "heading_" + id,
+      "data-bs-parent": "#sideNavAccordion_" + parentId,
+      children: /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)("div", {
+        className: "accordion-body sidenav-accbody",
+        children: /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)("div", {
+          className: "accordion sidenav-acc",
+          id: "sideNavAccordion_" + id,
+          children: childItems
+        }, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 25,
+          columnNumber: 11
+        }, this)
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 24,
+        columnNumber: 9
+      }, this)
+    }, void 0, false, {
+      fileName: _jsxFileName,
+      lineNumber: 23,
+      columnNumber: 7
+    }, this)]
+  }, id, true, {
+    fileName: _jsxFileName,
+    lineNumber: 18,
+    columnNumber: 5
+  }, this);
+}
+function sbProcessChildren(children, id) {
+  const items = [];
+  const connector = id == "" ? "" : ".";
+  if (children != null) {
+    let index = 1;
+    for (const child of children) {
+      items.push(sbAcc(child, id + connector + index++, id));
+    }
+  }
+  return items;
+}
+function MindMap() {
+  let posDepth = 0;
+  let negDepth = 0;
+  let cols = [];
+  function dptIdx(depth) {
+    return depth + negDepth;
+  }
+  function traverseDir(dir, isNeg, depth, lastPoint) {
+    if (isNeg) {
+      if (depth > negDepth) {
+        negDepth++;
+        cols.unshift([]);
+      }
+    } else {
+      if (depth > posDepth) {
+        posDepth++;
+        cols.push([]);
+      }
+    }
+
+    // Add row to a column
+    const addTo = dptIdx(depth);
+    cols[addTo].push( /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)("div", {
+      id: dir.label,
+      children: dir.label
+    }, void 0, false, {
+      fileName: _jsxFileName,
+      lineNumber: 72,
+      columnNumber: 7
+    }, this));
+    if (dir.children !== null) {
+      for (const node in dir.children) {
+        traverseDir(node, isNeg, depth + 1, null);
+      }
+    }
+  }
+  function createMap(dir) {
+    let thisOneNeg = true;
+    for (const node in dir) {
+      traverseDir(node, thisOneNeg, 1, null);
+      thisOneNeg = !thisOneNeg;
+    }
+    const result = [];
+    let idInc = 1;
+    for (const col in cols) {
+      result.push( /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)("div", {
+        id: "col_" + idInc++,
+        children: col
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 95,
+        columnNumber: 9
+      }, this));
+    }
+    return result;
+  }
+  return createMap(_Directory__WEBPACK_IMPORTED_MODULE_2__["default"]);
+
+  /*return (
+    <div>
+      <div id="container">
+        <div id="div2" class="f-col">
+          <div class="fixed-cont">
+            <p id="p4">order Cake and</p>
+            <p id="p5">Idea - 1 - 2 </p>
+            <p id="p6">Idea - 3 - 1 </p>
+            <p id="p7">Idea- 3 - 2</p>
+          </div>
+        </div>
+        <div id="div-2" class="f-col">
+          <p id="p10">Idea - 2 - 1</p>
+          <p id="p12">Idea - 2 - 2</p>
+        </div>
+        <div id="div-1" class="f-col">
+          <p id="p2">Dr. Helmut Zimmermann</p>
+        </div>
+        <div id="div0" class="f-col thinned">
+          <div class="bubble">
+            <div class="text-fix">
+              <b>Test<br />Mind Map</b>
+            </div>
+          </div>
+        </div>
+        <div id="div1" class="f-col">
+          <p id="p1">Idea - 1</p>
+          <p id="p3">Idea - 3</p>
+        </div>
+        <div id="div2" class="f-col">
+          <div class="fixed-cont">
+            <p id="p4">order Cake and</p>
+            <p id="p5">Idea - 1 - 2 </p>
+            <p id="p6">Idea - 3 - 1 </p>
+            <p id="p7">Idea- 3 - 2</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );*/
+}
+_c = MindMap;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MindMap);
+var _c;
+__webpack_require__.$Refresh$.register(_c, "MindMap");
+
+const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
+const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
+	$ReactRefreshModuleId$
+);
+
+function $ReactRefreshModuleRuntime$(exports) {
+	if (true) {
+		let errorOverlay;
+		if (true) {
+			errorOverlay = false;
+		}
+		let testMode;
+		if (typeof __react_refresh_test__ !== 'undefined') {
+			testMode = __react_refresh_test__;
+		}
+		return __react_refresh_utils__.executeRuntime(
+			exports,
+			$ReactRefreshModuleId$,
+			module.hot,
+			errorOverlay,
+			testMode
+		);
+	}
+}
+
+if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
+	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
+} else {
+	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
+}
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/MindMap.css":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/MindMap.css ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `body {
+    font-family: system-ui, sans-serif;
+    font-size:xx-large;
+}
+
+.f-col {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    transition: 250ms;
+    flex: 1 1;
+    max-width: 400px;
+}
+
+.thinned {
+    flex: 1 1;
+    overflow: hidden;
+}
+
+.text-fix {
+    width: 200px;
+    display: inline-block;
+}
+
+.bubble {
+    padding: 0.25em 0.5em;
+    background: #f3f3f3;
+    border: 3px solid red;
+    border-radius: 0.5em;
+    text-align: center;
+    align-content: center;
+}
+
+#container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em;
+    min-width: 600px;
+    margin: 0;
+}
+
+#container p {
+    padding: 0.25em 0.5em;
+    background: #f3f3f3;
+    border: 3px solid red;
+    border-radius: 0.5em;
+    text-align: center;
+}
+
+svg {
+    position: absolute;
+    z-index: -1
+}
+
+.path {
+    stroke: silver;
+    fill: none;
+    stroke-width: 2;
+}`, "",{"version":3,"sources":["webpack://./src/MindMap.css"],"names":[],"mappings":"AAAA;IACI,kCAAkC;IAClC,kBAAkB;AACtB;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,iBAAiB;IACjB,6BAA6B;IAC7B,iBAAiB;IACjB,SAAO;IACP,gBAAgB;AACpB;;AAEA;IACI,SAAO;IACP,gBAAgB;AACpB;;AAEA;IACI,YAAY;IACZ,qBAAqB;AACzB;;AAEA;IACI,qBAAqB;IACrB,mBAAmB;IACnB,qBAAqB;IACrB,oBAAoB;IACpB,kBAAkB;IAClB,qBAAqB;AACzB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,cAAc;IACd,gBAAgB;IAChB,SAAS;AACb;;AAEA;IACI,qBAAqB;IACrB,mBAAmB;IACnB,qBAAqB;IACrB,oBAAoB;IACpB,kBAAkB;AACtB;;AAEA;IACI,kBAAkB;IAClB;AACJ;;AAEA;IACI,cAAc;IACd,UAAU;IACV,eAAe;AACnB","sourcesContent":["body {\r\n    font-family: system-ui, sans-serif;\r\n    font-size:xx-large;\r\n}\r\n\r\n.f-col {\r\n    display: flex;\r\n    flex-direction: column;\r\n    flex-wrap: nowrap;\r\n    justify-content: space-around;\r\n    transition: 250ms;\r\n    flex: 1;\r\n    max-width: 400px;\r\n}\r\n\r\n.thinned {\r\n    flex: 1;\r\n    overflow: hidden;\r\n}\r\n\r\n.text-fix {\r\n    width: 200px;\r\n    display: inline-block;\r\n}\r\n\r\n.bubble {\r\n    padding: 0.25em 0.5em;\r\n    background: #f3f3f3;\r\n    border: 3px solid red;\r\n    border-radius: 0.5em;\r\n    text-align: center;\r\n    align-content: center;\r\n}\r\n\r\n#container {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    padding: 0.5em;\r\n    min-width: 600px;\r\n    margin: 0;\r\n}\r\n\r\n#container p {\r\n    padding: 0.25em 0.5em;\r\n    background: #f3f3f3;\r\n    border: 3px solid red;\r\n    border-radius: 0.5em;\r\n    text-align: center;\r\n}\r\n\r\nsvg {\r\n    position: absolute;\r\n    z-index: -1\r\n}\r\n\r\n.path {\r\n    stroke: silver;\r\n    fill: none;\r\n    stroke-width: 2;\r\n}"],"sourceRoot":""}]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./src/MindMap.css":
+/*!*************************!*\
+  !*** ./src/MindMap.css ***!
+  \*************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_2_node_modules_source_map_loader_dist_cjs_js_MindMap_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!../node_modules/source-map-loader/dist/cjs.js!./MindMap.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/MindMap.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_2_node_modules_source_map_loader_dist_cjs_js_MindMap_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+if (true) {
+  if (!_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_2_node_modules_source_map_loader_dist_cjs_js_MindMap_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals || module.hot.invalidate) {
+    var isEqualLocals = function isEqualLocals(a, b, isNamedExport) {
+  if (!a && b || a && !b) {
+    return false;
+  }
+  var p;
+  for (p in a) {
+    if (isNamedExport && p === "default") {
+      // eslint-disable-next-line no-continue
+      continue;
+    }
+    if (a[p] !== b[p]) {
+      return false;
+    }
+  }
+  for (p in b) {
+    if (isNamedExport && p === "default") {
+      // eslint-disable-next-line no-continue
+      continue;
+    }
+    if (!a[p]) {
+      return false;
+    }
+  }
+  return true;
+};
+    var isNamedExport = !_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_2_node_modules_source_map_loader_dist_cjs_js_MindMap_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals;
+    var oldLocals = isNamedExport ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_2_node_modules_source_map_loader_dist_cjs_js_MindMap_css__WEBPACK_IMPORTED_MODULE_6__ : _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_2_node_modules_source_map_loader_dist_cjs_js_MindMap_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals;
+
+    module.hot.accept(
+      /*! !!../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!../node_modules/source-map-loader/dist/cjs.js!./MindMap.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/MindMap.css",
+      __WEBPACK_OUTDATED_DEPENDENCIES__ => { /* harmony import */ _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_2_node_modules_source_map_loader_dist_cjs_js_MindMap_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!../node_modules/source-map-loader/dist/cjs.js!./MindMap.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/MindMap.css");
+(function () {
+        if (!isEqualLocals(oldLocals, isNamedExport ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_2_node_modules_source_map_loader_dist_cjs_js_MindMap_css__WEBPACK_IMPORTED_MODULE_6__ : _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_2_node_modules_source_map_loader_dist_cjs_js_MindMap_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals, isNamedExport)) {
+                module.hot.invalidate();
+
+                return;
+              }
+
+              oldLocals = isNamedExport ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_2_node_modules_source_map_loader_dist_cjs_js_MindMap_css__WEBPACK_IMPORTED_MODULE_6__ : _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_2_node_modules_source_map_loader_dist_cjs_js_MindMap_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals;
+
+              update(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_2_node_modules_source_map_loader_dist_cjs_js_MindMap_css__WEBPACK_IMPORTED_MODULE_6__["default"]);
+      })(__WEBPACK_OUTDATED_DEPENDENCIES__); }
+    )
+  }
+
+  module.hot.dispose(function() {
+    update();
+  });
+}
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_2_node_modules_source_map_loader_dist_cjs_js_MindMap_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_2_node_modules_source_map_loader_dist_cjs_js_MindMap_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_oneOf_5_use_2_node_modules_source_map_loader_dist_cjs_js_MindMap_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ })
+
+},
+/******/ function(__webpack_require__) { // webpackRuntimeModules
+/******/ /* webpack/runtime/getFullHash */
+/******/ (() => {
+/******/ 	__webpack_require__.h = () => ("9ed91df938d2109b5db5")
+/******/ })();
+/******/ 
+/******/ }
+);
+//# sourceMappingURL=main.e9b3e1251c63495f39d2.hot-update.js.map

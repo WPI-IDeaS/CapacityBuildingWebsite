@@ -1,0 +1,141 @@
+@import "Sketch3.css";
+
+
+.f-col {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    transition: 250ms;
+    flex: 1;
+    max-width: 400px;
+}
+
+.f-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    transition: 250ms;
+    flex: 1;
+
+    margin: 4px;
+}
+
+.double-top-margin {
+    margin-top: 20px;
+}
+
+.bubble {
+    padding: 0.25em 0.5em;
+    background: var(--pal-green);
+    border-radius: 0.5em;
+    text-align: center;
+    align-content: center;
+    height: fit-content;
+
+    transition: 250ms;
+
+    font-family: system-ui, sans-serif;
+    font-size: medium;
+    line-height: 1.1;
+}
+
+.expander {
+    cursor: pointer;
+}
+
+.bubble-expander-right {
+}
+
+.bubble-expander-left {
+}
+
+.thinned {
+    flex: 0 !important;
+    padding: 0;
+    overflow: hidden;
+}
+
+.text-fix {
+    width: 140px;
+    display: inline-block;
+
+    font-family: 'Lexend', sans-serif;
+
+    color: black;
+}
+
+.major-text {
+    font-size: x-large;
+}
+
+.major-text-xl {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.green {
+    background: var(--pal-green);
+}
+
+.blue {
+    background: var(--pal-blue);
+}
+
+.yellow {
+    background: var(--pal-yellow);
+}
+
+.red {
+    background: var(--pal-red);
+}
+
+.violet {
+    background: var(--pal-violet);
+}
+
+#container {
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em;
+    min-width: 600px;
+    margin: 0;
+}
+
+#container p {
+    padding: 0.25em 0.5em;
+    background: var(--pal-green);
+    border-radius: 0.5em;
+    text-align: center;
+}
+
+.path {
+    stroke: silver;
+    fill: none;
+    stroke-width: 2;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.arrow-holder {
+    pointer-events: none;
+}
+
+.thinned .arrow-holder {
+    display: none;
+}
+
+.open-expander .minus-vertical {
+    display: none;
+}
+
+svg {
+    pointer-events: none;
+}

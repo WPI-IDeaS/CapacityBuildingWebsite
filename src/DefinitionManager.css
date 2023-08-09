@@ -1,0 +1,73 @@
+@import "Sketch3.css";
+
+
+.definable {
+    display: inline;
+    color: var(--pal-main);
+    text-decoration-line: underline;
+
+    visibility: visible;
+}
+
+.definable:hover {
+    color: color-mix(in srgb, var(--pal-main) var(--pal-blend2), var(--pal-white));
+}
+
+.definition {
+    visibility: hidden;
+    font-weight: normal;
+
+    padding: 0;
+    margin: 0;
+
+    position: static;
+}
+
+.definition-hovered {
+    visibility: visible;
+    font-weight: normal;
+
+    padding: 0;
+    margin: 0;
+    filter: var(--neutral-shadow);
+
+    position: static;
+
+    /*transform: translate(0%, 40%);*/
+    z-index: 3;
+}
+
+.def-box {
+    position: absolute;
+    width: 500px;
+    height: 300px;
+
+    padding: 0;
+    margin: 0;
+
+    pointer-events: none;
+}
+
+.def-blurb {
+    text-align: left;
+    padding: 8px;
+
+    min-height: 120px;
+    width: fit-content;
+    height: fit-content;
+
+    color: var(--pal-font);
+    font-size: large;
+
+    background-color: var(--pal-main);
+    box-sizing: border-box;
+
+    border-radius: 20px;
+
+    pointer-events: auto;
+}
+
+.def-styled {
+    fill: var(--pal-main);
+    position: absolute;
+}
