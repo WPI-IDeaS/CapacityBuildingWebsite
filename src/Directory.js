@@ -83,6 +83,7 @@ function CapacityRouterHelper({currentNode, bigTitle}) {
     //console.log(currentNode)
     const node = findNodeByLinkIn(currentNode.children, section)
     if (node === undefined) return "WRONG";
+
     return (
         <Routes>
             <Route path="/" element={<ContentPage content={typeof node.contentFn === 'string'? [node.contentFn, ""] : node.contentFn()} bigTitle={bigTitle} prev={node.previousSectionLink} next={node.nextSectionLink} />} />

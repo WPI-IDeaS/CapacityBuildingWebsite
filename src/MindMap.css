@@ -136,6 +136,6 @@ a {
     display: none;
 }
 
-svg {
+#container svg {
     pointer-events: none;
 }

@@ -17,9 +17,15 @@
     --pal-main: var(--pal-green);
     --pal-accent: var(--pal-blue);
     --pal-font: var(--pal-cream);
+    --pal-link: var(--pal-red);
     --pal-icon-filter: none;
 
     --neutral-shadow: drop-shadow(3px 3px 2px rgba(40, 44, 52, 0.2));
+    --neutral-shadow-light: drop-shadow(2px 2px 1px rgba(40, 44, 52, 0.15));
+
+    --accent-shadow: drop-shadow(-4px 4px 0 var(--pal-accent));
+    --main-shadow: drop-shadow(-4px 4px 0 var(--pal-main));
+    --main-shadow-small: drop-shadow(-2px 2px 0 var(--pal-main));
 }
 
 body {
@@ -91,7 +97,7 @@ body > #root > div {
 
     font-family: 'Lexend', sans-serif;
     font-weight: 600;
-    text-shadow: 4px 4px 0 var(--pal-accent);
+    text-shadow: var(--accent-shadow);
 }
 
 .titlefloat-box {
@@ -103,7 +109,7 @@ body > #root > div {
     right: 0;
     z-index: 1;
 
-    filter: drop-shadow(4px 4px 0 var(--pal-accent));
+    filter: var(--accent-shadow);
 
     width: 100%;
     pointer-events: none;
@@ -399,6 +405,27 @@ body > #root > div {
     /*overflow: auto;*/
 }
 
+.content-card-body a {
+    font-weight: bold;
+    text-decoration-line: underline;
+}
+
+.content-card-body div{
+    margin-bottom: 1lh;
+}
+
+.content-card-body div:last-child {
+    margin-bottom: 0;
+}
+
+.content-card-body ul{
+    margin-bottom: 1lh;
+}
+
+.content-card-body ul:last-child {
+    margin-bottom: 0;
+}
+
 .question-grid {
     display: grid;
     grid-auto-flow: column dense;
@@ -442,6 +469,21 @@ body > #root > div {
     color: black;
 }
 
+.question-card.shorten {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.question-card.shorten:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: linear-gradient(90deg, transparent, var(--pal-white));
+}
+
 .question-card-collapse {
 
 }
@@ -457,6 +499,32 @@ body > #root > div {
     border-radius: 10px;
     border: none;
     padding: 6px;
+
+    margin-left: 5px;
+}
+
+.question-response::-webkit-scrollbar-track {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.pen-button {
+    cursor: pointer;
+    transition: 250ms;
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    filter: var(--neutral-shadow-light)
+}
+
+.response-opened .pen-button {
+    bottom: 20px;
+    right: 20px;
+
+    filter: none;
+    transform: rotate(180deg);
 }
 
 .content-card-header {

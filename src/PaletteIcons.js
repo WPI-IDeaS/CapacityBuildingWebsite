@@ -66,3 +66,29 @@ export function IconAccessibility() {
         </svg>
     );
 }
+
+export function IconMindMap() {
+    return (
+        <svg height="100%" viewBox="0 0 114 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M74 29.9828C75.3532 30.1709 78.0597 28.8922 78.0597 22.2735C78.0597 15.6547 80.6866 14 82 14" stroke={blend2} strokeWidth="3"/>
+            <path d="M74 30.0129C75.3532 29.8719 78.0597 30.8308 78.0597 35.7949C78.0597 40.759 80.6866 42 82 42" stroke={blend2} strokeWidth="3"/>
+            <rect x="82" y="4" width="32" height="18" rx="3" fill={blend1}/>
+            <path d="M40 29.9796C38.6468 30.2029 35.9403 28.6845 35.9403 20.8247C35.9403 12.9649 33.3134 11 32 11" stroke={blend2} strokeWidth="3"/>
+            <path d="M40 30.0064C38.6468 29.9359 35.9403 30.4154 35.9403 32.8975C35.9403 35.3795 33.3134 36 32 36" stroke={blend2} strokeWidth="3"/>
+            <rect y="51" width="32" height="19" rx="3" fill={blend1}/>
+            <path d="M40 30.0343C38.6468 29.6583 35.9403 32.2155 35.9403 45.4531C35.9403 58.6906 33.3134 62 32 62" stroke={blend2} strokeWidth="3"/>
+            <rect x="82" y="36" width="32" height="18" rx="3" fill={blend1}/>
+            <rect y="27" width="32" height="16" rx="3" fill={blend1}/>
+            <rect width="32" height="19" rx="3" fill={blend1}/>
+            <rect x="40" y="22" width="34" height="20" rx="3" fill={blend1}/>
+        </svg>
+    );
+}
+
+export function IconHorizontalCaret() {
+    return (
+        <svg height="100%" viewBox="0 0 19 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9.21459 14L-5.79012e-08 23.1445L4.8927 28L19 14L4.8927 -5.83449e-08L-2.75995e-07 4.85549L9.21459 14Z" fill={blend1}/>
+        </svg>
+    );
+}

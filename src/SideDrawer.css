@@ -1,0 +1,77 @@
+@import "Sketch3.css";
+
+:root {
+    --mini-drawer-width: 110px;
+    --mini-drawer-height: 50px;
+
+    --mini-drawer-padding: 10px;
+}
+
+.mini-drawer {
+    position: absolute;
+    width: var(--mini-drawer-width);
+
+    top: 0;
+    left: 0;
+
+    filter: var(--accent-shadow);
+
+    z-index: 2;
+}
+
+.mini-drawer-handle {
+    display: flex;
+    justify-content: center;
+
+    position: absolute;
+    top: calc((var(--mini-drawer-height) / 2) + var(--mini-drawer-padding) - 20px);
+    left: 0;
+
+    height: 40px;
+    width: 30px;
+
+    border-radius: 0 10px 10px 0;
+
+    background-color: var(--pal-cream);
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    padding: 5px;
+}
+
+.mini-drawer-content {
+    display: flex;
+    justify-content: right;
+}
+
+.mini-drawer-content-wrapper {
+    display: block;
+
+    border-radius: 0 10px 10px 0;
+
+    width: calc(var(--mini-drawer-width) + (2 * var(--mini-drawer-padding)));
+    height: calc(var(--mini-drawer-height) + (2 * var(--mini-drawer-padding)));
+
+    padding: var(--mini-drawer-padding);
+    background-color: var(--pal-cream);
+}
+
+.mini-drawer .caret {
+    width: 18px;
+
+    transition: 0.2s transform ease-in-out;
+
+    transform: rotate(180deg);
+
+    filter: none;
+}
+
+.mini-drawer .collapsed .caret {
+    transform: none;
+}
+
+.mini-drawer a {
+    height: var(--mini-drawer-height);
+}

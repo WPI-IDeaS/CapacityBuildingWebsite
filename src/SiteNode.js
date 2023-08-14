@@ -1,3 +1,6 @@
+import QuestionsPanel from "./QuestionsPanel";
+import React from 'react';
+import {addQuestionsData, setQuestionsColor} from "./QuestionsManager";
 
 function makeLink(t) {
     const newLink = t.toLowerCase().replace(/[.,\/#!?$%\^&\*;:{}=\-_`~()"']/g, "").trim().replace(/\s+/g, '-');
@@ -18,6 +21,18 @@ class sdObject {
 
 export function sn(label, contentFn, childObjs=null, link=null) {
     return new sdObject(label, contentFn, childObjs, link);
+}
+
+export function sn_qtc(title, pageId, questionContent, childObjs=null, link=null) {
+    addQuestionsData(title, pageId, questionContent);
+
+    function contentFn() {
+        return (
+            <QuestionsPanel title={title} panelId={pageId} questionBoxes={questionContent} />
+        );
+    }
+
+    return new sdObject("Questions to Consider", contentFn, childObjs, link);
 }
 
 export function sn_topic(label, contentFn, color=null, bigTitle, childObjs=null, link=null) {

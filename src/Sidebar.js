@@ -7,6 +7,7 @@ import {isBookmarked} from "./UserDataManager";
 
 import Bookmark from './images/icons/bookmark.svg'
 import search from "./images/icons/search.png";
+import SideDrawer from "./SideDrawer";
 
 function sbAcc(item, id, parentId) {
     const useParent = false;
@@ -122,6 +123,7 @@ function Sidebar() {
 
     return (
         <div className="App-sidenav">
+            <SideDrawer/>
             <div className="sidenav-title">
                 Quick Access
                 <div className="search">

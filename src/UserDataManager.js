@@ -69,6 +69,10 @@ export function clearBookmarks() {
     localStorage.setItem(BOOKMARKS_KEY, null);
 }
 
+export function pageHasResponses(pageId) {
+    return localStorage.getItem(RESPONSES_BASE_KEY + "_" + pageId) != null;
+}
+
 export function updateResponse(pageId, questionId, newContent) {
     const thisKey = RESPONSES_BASE_KEY + "_" + pageId;
 
@@ -80,6 +84,11 @@ export function updateResponse(pageId, questionId, newContent) {
     }
     else {
         delete currentResponses[questionId];
+        //console.log("removed " + questionId + ". " + Object.keys(currentResponses).length + " LEFT")
+        if(Object.keys(currentResponses).length <= 0) {
+            localStorage.removeItem(thisKey);
+            return;
+        }
     }
 
     localStorage.setItem(thisKey, JSON.stringify(currentResponses));

@@ -37,9 +37,14 @@
     z-index: 3;
 }
 
+.definition-hovered a{
+    text-decoration-line: underline;
+    color: color-mix(in srgb, var(--pal-link) var(--pal-blend2), var(--pal-white));
+}
+
 .def-box {
     position: absolute;
-    width: 500px;
+    width: 50vw;
     height: 300px;
 
     padding: 0;
