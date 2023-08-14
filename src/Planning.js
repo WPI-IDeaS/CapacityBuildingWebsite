@@ -536,17 +536,17 @@ function BudgetingFailures() {
                     <li>Expecting more work than is feasible given the amount of a person’s time funded, either through
                         grant
                         funding or their existing job duties and availability
-                    </li>
+                    </li><br/>
 
                     <li>Assuming that limited budgets must fund tasks first; anything “leftover” after tasks can fund a
                         more
                         collaborative, empowering capacity building approach
-                    </li>
+                    </li><br/>
 
                     <li>Including a person’s name with a given role in budgeting approvals without first discussing the
                         role,
                         rates of pay, amount of time, and any other stipulations with the person
-                    </li>
+                    </li><br/>
 
                     <li>Maxing out the budget on people’s time, rather than including sufficient funding for travel to
                         conferences, materials, data management (e.g., incentives, audio transcription); these small
