@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/CapacityBuildingWebsite/static/css/main.7e8ed4cc.css",
-    "main.js": "/CapacityBuildingWebsite/static/js/main.2511c5b3.js",
+    "main.css": "/CapacityBuildingWebsite/static/css/main.6c5f3f2d.css",
+    "main.js": "/CapacityBuildingWebsite/static/js/main.baf719a1.js",
     "static/js/496.afa2f07b.chunk.js": "/CapacityBuildingWebsite/static/js/496.afa2f07b.chunk.js",
     "static/media/aspect_outcome.png": "/CapacityBuildingWebsite/static/media/aspect_outcome.be6d2e8e9efc009faec8.png",
     "static/media/conceptual_framework.png": "/CapacityBuildingWebsite/static/media/conceptual_framework.fd77aeec0db4047a0c88.png",
@@ -10,12 +10,12 @@
     "index.html": "/CapacityBuildingWebsite/index.html",
     "static/media/bookmark.svg": "/CapacityBuildingWebsite/static/media/bookmark.55f1c1b0921cb6fada6bd4f4e36fe247.svg",
     "static/media/caret.svg": "/CapacityBuildingWebsite/static/media/caret.21e79d5f9960a7e04f2c867999d4c423.svg",
-    "main.7e8ed4cc.css.map": "/CapacityBuildingWebsite/static/css/main.7e8ed4cc.css.map",
-    "main.2511c5b3.js.map": "/CapacityBuildingWebsite/static/js/main.2511c5b3.js.map",
+    "main.6c5f3f2d.css.map": "/CapacityBuildingWebsite/static/css/main.6c5f3f2d.css.map",
+    "main.baf719a1.js.map": "/CapacityBuildingWebsite/static/js/main.baf719a1.js.map",
     "496.afa2f07b.chunk.js.map": "/CapacityBuildingWebsite/static/js/496.afa2f07b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7e8ed4cc.css",
-    "static/js/main.2511c5b3.js"
+    "static/css/main.6c5f3f2d.css",
+    "static/js/main.baf719a1.js"
   ]
 }
