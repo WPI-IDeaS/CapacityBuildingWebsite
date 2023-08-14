@@ -10,7 +10,7 @@ import {setPalette} from "./ColorManager";
 import {getBookmarks} from "./UserDataManager";
 
 // LEAVE TRUE IF DEPLOYING TO GH PAGES
-const USE_HASH = true;
+const USE_HASH = false;
 
 export function CapacityRouter() {
     if (USE_HASH) {
