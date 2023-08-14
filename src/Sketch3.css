@@ -515,13 +515,11 @@ body > #root > div {
     position: absolute;
     bottom: 0;
     right: 0;
-
-    filter: var(--neutral-shadow-light)
 }
 
 .response-opened .pen-button {
     bottom: 20px;
-    right: 20px;
+    right: 35px;
 
     filter: none;
     transform: rotate(180deg);

@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import './Sketch3.css';
+import '../Sketch3.css';
 
-import Sidebar from './Sidebar';
-import MindMap from './MindMap';
-import BodyCardStack from "./BodyCardStack";
+import Sidebar from '../Sidebar';
+import MindMap from '../MindMap';
+import BodyCardStack from "../BodyCardStack";
 import {Xwrapper} from "react-xarrows";
 
 
