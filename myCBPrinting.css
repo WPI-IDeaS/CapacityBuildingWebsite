@@ -1,0 +1,42 @@
+:root {
+    --pal-cream: #FEF9EF;
+    --pal-white: #FFFFFF;
+    --pal-black: #000000;
+    --pal-blue: #227C9D;
+    --pal-green: #17C3B2;
+    --pal-red: #FE6D73;
+    --pal-yellow: #FFCB77;
+    --pal-violet: #905ebf;
+
+    --pal-blend1: 100%;
+    --pal-blend2: 67%;
+    --pal-blend3: 36%;
+
+    --neutral-shadow: drop-shadow(3px 3px 2px rgba(40, 44, 52, 0.2));
+    --neutral-shadow-light: drop-shadow(2px 2px 1px rgba(40, 44, 52, 0.15));
+
+    --accent-shadow: drop-shadow(-4px 4px 0 var(--pal-accent));
+    --main-shadow: drop-shadow(-4px 4px 0 var(--pal-main));
+    --main-shadow-small: drop-shadow(-2px 2px 0 var(--pal-main));
+}
+
+body {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 300;
+}
+
+.cb-head {
+    font-size: x-large;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.cb-head b {
+    font-size: xxx-large;
+}
+
+.cb-response-content {
+    white-space: pre-line;
+}
