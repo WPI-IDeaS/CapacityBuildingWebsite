@@ -1,21 +1,27 @@
 {
   "files": {
-    "main.css": "/CapacityBuildingWebsite/static/css/main.6c5f3f2d.css",
-    "main.js": "/CapacityBuildingWebsite/static/js/main.baf719a1.js",
+    "main.css": "/CapacityBuildingWebsite/static/css/main.fa1980b8.css",
+    "main.js": "/CapacityBuildingWebsite/static/js/main.7b39ddc8.js",
     "static/js/496.afa2f07b.chunk.js": "/CapacityBuildingWebsite/static/js/496.afa2f07b.chunk.js",
     "static/media/aspect_outcome.png": "/CapacityBuildingWebsite/static/media/aspect_outcome.be6d2e8e9efc009faec8.png",
     "static/media/conceptual_framework.png": "/CapacityBuildingWebsite/static/media/conceptual_framework.fd77aeec0db4047a0c88.png",
     "static/media/decision_making.png": "/CapacityBuildingWebsite/static/media/decision_making.ec7820cdfe99be235e97.png",
+    "static/media/OpenDyslexic-BoldItalic.otf": "/CapacityBuildingWebsite/static/media/OpenDyslexic-BoldItalic.51781d5c5f73576d2f8c.otf",
+    "static/media/OpenDyslexic-Italic.otf": "/CapacityBuildingWebsite/static/media/OpenDyslexic-Italic.5ff9ce0dd64351704ef0.otf",
+    "static/media/OpenDyslexic-Bold.otf": "/CapacityBuildingWebsite/static/media/OpenDyslexic-Bold.1082cfdbbc04743cc3f1.otf",
+    "static/media/OpenDyslexic-Regular.otf": "/CapacityBuildingWebsite/static/media/OpenDyslexic-Regular.d9b06c5ffd7d312017e5.otf",
     "static/media/staffing_choice.png": "/CapacityBuildingWebsite/static/media/staffing_choice.9dad156d3da8fcb8021a.png",
+    "static/media/print.svg": "/CapacityBuildingWebsite/static/media/print.770f94f5e278f2d14bf2c5f1c35905f9.svg",
+    "static/media/close.svg": "/CapacityBuildingWebsite/static/media/close.48abd9a44d9c249485ea4843677f47ff.svg",
     "index.html": "/CapacityBuildingWebsite/index.html",
     "static/media/bookmark.svg": "/CapacityBuildingWebsite/static/media/bookmark.55f1c1b0921cb6fada6bd4f4e36fe247.svg",
     "static/media/caret.svg": "/CapacityBuildingWebsite/static/media/caret.21e79d5f9960a7e04f2c867999d4c423.svg",
-    "main.6c5f3f2d.css.map": "/CapacityBuildingWebsite/static/css/main.6c5f3f2d.css.map",
-    "main.baf719a1.js.map": "/CapacityBuildingWebsite/static/js/main.baf719a1.js.map",
+    "main.fa1980b8.css.map": "/CapacityBuildingWebsite/static/css/main.fa1980b8.css.map",
+    "main.7b39ddc8.js.map": "/CapacityBuildingWebsite/static/js/main.7b39ddc8.js.map",
     "496.afa2f07b.chunk.js.map": "/CapacityBuildingWebsite/static/js/496.afa2f07b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6c5f3f2d.css",
-    "static/js/main.baf719a1.js"
+    "static/css/main.fa1980b8.css",
+    "static/js/main.7b39ddc8.js"
   ]
 }
