@@ -29,53 +29,43 @@ function BodyCardStack(globalTitle, cardContents, startingCard=0, previousStack=
 
         return (
             // Use this div to wrap things around the entire card stack
-            <div className="content-card">
+            <div className="content-card definitions-bound">
                 <div className="content-card-header">
                     {globalTitle}
                 </div>
                 {cards}
                 <div className="content-card-footer">
-                    {
-                        currentCard > 0?
-                            <button href="" onClick={cardBwd}>
-                                {"<"}
-                            </button>
-                            :
-                            ""
-                    }
-                    &nbsp;
-                    {currentCard+1}/{totalCards}
-                    &nbsp;
-                    {
-                        currentCard < totalCards-1?
-                            <button onClick={cardFwd}>
-                                >
-                            </button>
-                            :
-                            ""
-                    }
-                    {
-                        previousStack != null || nextStack != null?
-                            <br/>
-                            :
-                            ""
-                    }
-                    {
-                        previousStack != null?
-                            <Link to={previousStack} onClick={() => setCurrentCard(startingCard)}>
-                                <button>&lt;&lt; Previous Section</button>
-                            </Link>
-                            :
-                            ""
-                    }
-                    {
-                        nextStack != null?
-                            <Link to={nextStack} onClick={() => setCurrentCard(startingCard)}>
-                                <button>Next Section >></button>
-                            </Link>
-                            :
-                            ""
-                    }
+                    <div style={{display: "flex", flex: 1, justifyContent: "start"}}>
+                        {
+                            previousStack != null?
+                                <Link to={previousStack} onClick={() => setCurrentCard(startingCard)}>
+                                    <button>&lt;&lt; Previous Section</button>
+                                </Link>
+                                :
+                                ""
+                        }
+                    </div>
+                    <div style={{display: "flex", flex: 1, justifyContent: "center"}}>
+                        <button onClick={cardBwd} style={{visibility: (currentCard > 0)? "visible":"hidden"}}>
+                            {"<"}
+                        </button>
+                        &nbsp;
+                        {currentCard+1}/{totalCards}
+                        &nbsp;
+                        <button onClick={cardFwd} style={{visibility: (currentCard < (totalCards-1))? "visible":"hidden"}}>
+                            >
+                        </button>
+                    </div>
+                    <div style={{display: "flex", flex: 1, justifyContent: "end"}}>
+                        {
+                            nextStack != null?
+                                <Link to={nextStack} onClick={() => setCurrentCard(startingCard)}>
+                                    <button>Next Section >></button>
+                                </Link>
+                                :
+                                ""
+                        }
+                    </div>
                 </div>
             </div>
         );

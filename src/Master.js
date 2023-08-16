@@ -7,7 +7,7 @@ import BodyCardStack from "./BodyCardStack";
 import './Sketch3.css';
 import {setPalette} from "./ColorManager";
 import {useLocation} from "react-router-dom";
-import {addBookmark, clearBookmarks} from "./UserDataManager";
+import {addBookmark, clearBookmarks, getAllAccessibility} from "./UserDataManager";
 import BottomDrawer from "./BottomDrawer";
 
 export function Home() {
@@ -45,7 +45,7 @@ export function ContentPage({content, bigTitle, prev, next}) {
         {titleBubble(bigTitle)}
         <div className='app-shadow'>
             {contentDisplay}
-            <BottomDrawer/>
         </div>
+        <BottomDrawer/>
     </div>);
 }

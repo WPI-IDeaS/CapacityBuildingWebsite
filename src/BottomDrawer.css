@@ -9,11 +9,11 @@
     bottom: 0;
     width: var(--drawer-width);
 
-    left: calc(50% - (var(--drawer-width) / 2));
+    left: calc(((100% - (var(--sidenav-width))) / 2) - (var(--drawer-width) / 2) + (var(--sidenav-width)));
 
     filter: var(--accent-shadow);
 
-    z-index: 2;
+    z-index: 3;
 }
 
 .drawer-handle {
@@ -77,7 +77,7 @@
     height: 60vh;
     width: var(--drawer-width);
 
-    left: calc(50% - (var(--drawer-width) / 2));
+    left: calc(((100% - (var(--sidenav-width))) / 2) - (var(--drawer-width) / 2) + (var(--sidenav-width)));
     bottom: 28vh;
 
     border-radius: 10px;
@@ -93,7 +93,7 @@
 .panel-title {
     font-size: xxx-large;
     font-family: 'Lexend', sans-serif;
-    font-weight: bold;
+    font-weight: calc(bold + var(--acc-bold-offset));
 
     text-align: center;
     padding-top: 10px;
@@ -159,7 +159,7 @@
 
     font-size: x-large;
     font-family: 'Lexend', sans-serif;
-    font-weight: normal;
+    font-weight: calc(normal + var(--acc-bold-offset));
 
     text-align: center;
 

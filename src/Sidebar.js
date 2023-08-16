@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import './Sketch3.css';
 import {siteDirectory} from './Directory';
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import {Collapse} from '../node_modules/bootstrap/dist/js/bootstrap.bundle.js';
 import {isBookmarked} from "./UserDataManager";
 
@@ -9,14 +9,17 @@ import Bookmark from './images/icons/bookmark.svg'
 import search from "./images/icons/search.png";
 import SideDrawer from "./SideDrawer";
 
-function sbAcc(item, id, parentId) {
+function sbAcc(item, id, parentId, url) {
     const useParent = false;
 
-    let childItems = sbProcessChildren(item.children, id);
+    let childItems = sbProcessChildren(item.children, id, url);
+
+    const beOpen = url.includes(item.expandedLink);
+    //console.log(url + ", " + item.expandedLink + "; " + beOpen)
 
     let drop = "";
     if(item.children !== null) {
-        drop = <button className="accordion-button sidenav-accdropdown collapsed" type="button" data-bs-toggle="collapse" data-bs-target={"#collapse_" + id} aria-expanded="false" aria-controls={"collapse_" + id}></button>;
+        drop = <button className={"accordion-button sidenav-accdropdown" + (beOpen? "":" collapsed")} type="button" data-bs-toggle="collapse" data-bs-target={"#collapse_" + id} aria-expanded={beOpen? "true":"false"} aria-controls={"collapse_" + id}></button>;
     }
     else {
         drop = <div className="sidenav-accdropdown"></div>;
@@ -31,7 +34,7 @@ function sbAcc(item, id, parentId) {
                 <Link style={{fontWeight: parentId == ""? 700:500}} to={item.expandedLink}>{item.label}</Link>
                 {bookmarker}
             </b>
-            <div id={"collapse_" + id} className="accordion-collapse collapse" aria-labelledby={"heading_" + id} data-bs-parent={useParent? ("#sideNavAccordion_" + parentId):""}>
+            <div id={"collapse_" + id} className={"accordion-collapse collapse" + (beOpen? " show":"")} aria-labelledby={"heading_" + id} data-bs-parent={useParent? ("#sideNavAccordion_" + parentId):""}>
                 <div className="accordion-body sidenav-accbody">
                     <div className="accordion sidenav-acc" id={"sideNavAccordion_" + id}>
                         {childItems}
@@ -42,13 +45,13 @@ function sbAcc(item, id, parentId) {
     );
 }
 
-function sbProcessChildren(children, id) {
+function sbProcessChildren(children, id, url) {
     const items = [];
     const connector = id === ""? "" : ".";
     if(children !== null) {
         let index = 1;
         for(const child of children) {
-            items.push(sbAcc(child, id + connector + index++, id));
+            items.push(sbAcc(child, id + connector + index++, id, url));
         }
     }
 
@@ -121,6 +124,8 @@ function Sidebar() {
         }
     }, []);
 
+    const pathRn = useLocation().pathname;
+
     return (
         <div className="App-sidenav">
             <SideDrawer/>
@@ -135,7 +140,7 @@ function Sidebar() {
                 <div className="left-scroll-inner">
                     <br/>
                     <div className="accordion sidenav-top-acc" id="sideNavAccordion_">
-                        {sbProcessChildren(siteDirectory, "")}
+                        {sbProcessChildren(siteDirectory, "", pathRn)}
                     </div>
                 </div>
             </div>

@@ -3,6 +3,7 @@
 .cb-filter {
     width: 100%;
     height: 100%;
+
     backdrop-filter: blur(10px) brightness(90%);
 }
 
@@ -18,7 +19,6 @@
     border-radius: 20px 20px 0 0;
 
     color: var(--pal-black);
-    filter: var(--neutral-shadow);
 
     width: 74%;
     height: 98vh;
@@ -26,6 +26,8 @@
     bottom: 0;
     left: 13%;
     padding: 20px 10px 0 20px;
+
+    filter: var(--neutral-shadow);
 }
 
 .cb-sheet-inner {
@@ -35,6 +37,7 @@
 
     padding-right: 10px;
     padding-bottom: 20px;
+    font-weight: calc(normal + var(--acc-bold-offset));
 }
 
 .cb-head {
@@ -55,4 +58,56 @@
 
 .cb-response-content {
     white-space: pre-line;
+}
+
+.cb-filter button {
+    margin: 10px 0 0 20px;
+    padding: 10px;
+    background-color: var(--pal-main);
+
+    width: 15vh;
+    height: 15vh;
+
+    border-radius: 10px;
+    border: none;
+    filter: var(--neutral-shadow-light);
+}
+
+.cb-filter .help-definition {
+    margin: 30px 0 0 20px;
+    padding: 10px;
+    background-color: var(--pal-main);
+
+    width: 15vh;
+    height: 15vh;
+
+    border-radius: 10px;
+    border: none;
+    filter: var(--neutral-shadow-light);
+}
+
+.cb-filter .help-definition .def-bubble > * {
+    translate: 0 50px;
+    fill: color-mix(in srgb, var(--pal-main) var(--pal-blend2), var(--pal-white));
+}
+
+.cb-filter .help-definition .def-bubble .def-blurb {
+    background-color: color-mix(in srgb, var(--pal-main) var(--pal-blend2), var(--pal-white));
+}
+
+.cb-filter button img {
+    filter: var(--pal-icon-filter);
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+.cb-filter .help-definition .mentor-face {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    margin: 0;
 }

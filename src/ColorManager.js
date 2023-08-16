@@ -34,10 +34,19 @@ const palettes = {
         font: "cream",
         link: "green",
         iconFilter: "none"
+    },
+    "lock": {
+        main: "violet",
+        accent: "green",
+        font: "black",
+        link: "yellow",
+        iconFilter: "brightness(0.00)"
     }
 };
 
 let currentPal;
+
+let isLocked = false;
 
 const root = document.querySelector(':root');
 
@@ -68,15 +77,33 @@ export function colorStringFor(thisColor) {
     }
 }
 
-export function setPalette(to) {
-    currentPal = palettes[to];
+export function lockPalette() {
+    setPalette("lock");
 
-    const rs = getComputedStyle(root);
-    root.style.setProperty('--pal-main', rs.getPropertyValue('--pal-' + currentPal.main));
-    root.style.setProperty('--pal-accent', rs.getPropertyValue('--pal-' + currentPal.accent));
-    root.style.setProperty('--pal-font', rs.getPropertyValue('--pal-' + currentPal.font));
-    root.style.setProperty('--pal-link', rs.getPropertyValue('--pal-' + currentPal.link));
-    root.style.setProperty('--pal-icon-filter', currentPal.iconFilter);
+    isLocked = true;
+}
+
+export function unLockPalette() {
+    isLocked = false;
+
+    setPalette(currentPal["main"]);
+}
+
+export function setPalette(to) {
+    const changeTo = palettes[to];
+
+    if (!isLocked) {
+        const rs = getComputedStyle(root);
+        root.style.setProperty('--pal-main', rs.getPropertyValue('--pal-' + changeTo.main));
+        root.style.setProperty('--pal-accent', rs.getPropertyValue('--pal-' + changeTo.accent));
+        root.style.setProperty('--pal-font', rs.getPropertyValue('--pal-' + changeTo.font));
+        root.style.setProperty('--pal-link', rs.getPropertyValue('--pal-' + changeTo.link));
+        root.style.setProperty('--pal-icon-filter', changeTo.iconFilter);
+    }
+
+    if (to != "lock") {
+        currentPal = palettes[to];
+    }
 }
 
 export function getPalette(named=null) {

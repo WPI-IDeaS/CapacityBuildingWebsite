@@ -2,6 +2,11 @@ import "./myCB.css"
 import {getQuestionsData} from "./QuestionsManager";
 import {getResponse, pageHasResponses} from "./UserDataManager";
 
+import PrintIcon from "./images/icons/print.svg";
+import {MentorThink, MentorAnswer} from "./MentorFace";
+import {HelpPopupButton} from "./DefinitionManager";
+
+
 const printScript = `
     <script>
         window.print();
@@ -66,12 +71,17 @@ function MyCBEntry({data}) {
 function MyCB() {
     let index = 1;
     return (
-        <div className="cb-filter">
-            <div className="cb-sheet" onClick={printCB}>
+        <div className="cb-filter definitions-bound">
+            <div className="cb-sheet">
                 <div id="cb-printable" className="cb-sheet-inner">
                     {getQuestionsData().map((d) => <MyCBEntry key={index++} data={d}/>)}
                 </div>
             </div>
+            <button onClick={printCB} title="Print Your Capacity Building">
+                <img src={PrintIcon} alt="Printer"/>
+            </button>
+            <br/>
+            <HelpPopupButton defId="help_mycb" helpContent={<span>This page contains your compiled thoughts on capacity building, available for reference or to print! Use the button above to bring up a print dialogue.</span>} />
         </div>
     );
 }

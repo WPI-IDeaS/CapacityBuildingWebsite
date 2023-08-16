@@ -40,16 +40,11 @@
     font-family: system-ui, sans-serif;
     font-size: medium;
     line-height: 1.1;
+    font-weight: calc(normal + var(--acc-bold-offset));
 }
 
 .expander {
     cursor: pointer;
-}
-
-.bubble-expander-right {
-}
-
-.bubble-expander-left {
 }
 
 .thinned {
@@ -73,7 +68,7 @@
 
 .major-text-xl {
     font-size: x-large;
-    font-weight: bold;
+    background: none;
 }
 
 .green {

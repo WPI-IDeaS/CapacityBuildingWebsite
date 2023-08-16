@@ -9,6 +9,7 @@ import "./BottomDrawer.css"
 
 import Caret from "./images/icons/caret.svg"
 import MyCB from "./MyCB";
+import {AccessibilityCheckbox, AccessibilitySlider} from "./AccessibilityControl";
 
 function CentralScrollPanel() {
 
@@ -93,7 +94,7 @@ function BottomDrawer() {
                         <button title="Your Saved Pages" onClick={toggleSavedPages}>
                             <IconBookmarksList/>
                         </button>
-                        <button title="Accessibility settings">
+                        <button title="Accessibility settings" onClick={toggleAccessibility}>
                             <IconAccessibility/>
                         </button>
                     </div>
@@ -116,10 +117,32 @@ function BottomDrawer() {
                     )}
                     <br/>
                 </div>
-
             </div>
-            <div style={{position: "fixed", width: "100%", height: "100%", top: 0, left: 0, display: showPanelState=="responses"? "block" : "none"}}>
-                <MyCB></MyCB>
+            <div id="accessibility-panel" className="central-scroll-panel" style={{display: showPanelState=="accessibility"? "flex" : "none"}}>
+
+                <div className="panel-title">
+                    Accessibility
+                </div>
+                <div className="panel-scroll">
+                    <br/>
+                    <AccessibilityCheckbox setting="dyslexic" title="Dyslexia-friendly"/>
+                    <AccessibilityCheckbox setting="animations" title="Allow Animations"/>
+                    <AccessibilityCheckbox setting="colorLock" title="Color Lock"/>
+                    <AccessibilitySlider setting="textSize" title="Text Size" min={-2} max={2} labelFn={(v) => {
+                        if (v == 0) return "Default";
+                        if (v > 0) return "+" + v;
+                        return v;
+                    }}/>
+                    <AccessibilitySlider setting="textBoldness" title="Text Boldness" min={-1} max={1} labelFn={(v) => {
+                        if (v == 0) return "Default";
+                        if (v > 0) return "+" + v;
+                        return v;
+                    }}/>
+                    <br/>
+                </div>
+            </div>
+            <div style={{position: "fixed", zIndex: 2, width: "calc(100% - var(--sidenav-width))", height: "100%", top: 0, left: "var(--sidenav-width)", display: showPanelState=="responses"? "block" : "none"}}>
+                <MyCB/>
             </div>
         </div>
     );

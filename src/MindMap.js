@@ -4,6 +4,7 @@ import './MindMap.css';
 import {siteDirectory} from './Directory';
 import Xarrow, {useXarrow} from "react-xarrows";
 import {Link} from "react-router-dom";
+import {MindMapCore} from "./PaletteIcons";
 
 function MindMap() {
     const updateXarrow = useXarrow();
@@ -36,9 +37,7 @@ function MindMap() {
     let cols = [
         [
             <div className="bubble major-text-xl" key="MAIN" id="MAIN">
-                <div className="text-fix">
-                    Capacity Building
-                </div>
+                <MindMapCore/>
             </div>
         ]
     ];
@@ -140,7 +139,7 @@ function MindMap() {
             connector = (
                 <div className="arrow-holder">
                     <Xarrow
-                        start="MAIN"
+                        start={"arrow-connector-" + color}
                         end={id}
                         startAnchor={["right", "left"]}
                         endAnchor={["right", "left"]}

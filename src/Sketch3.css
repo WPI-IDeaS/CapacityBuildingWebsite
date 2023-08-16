@@ -20,17 +20,41 @@
     --pal-link: var(--pal-red);
     --pal-icon-filter: none;
 
-    --neutral-shadow: drop-shadow(3px 3px 2px rgba(40, 44, 52, 0.2));
-    --neutral-shadow-light: drop-shadow(2px 2px 1px rgba(40, 44, 52, 0.15));
+    --neutral-shadow: drop-shadow(1px 3px 2px rgba(40, 44, 52, 0.2));
+    --neutral-shadow-light: drop-shadow(1px 2px 1px rgba(40, 44, 52, 0.15));
 
     --accent-shadow: drop-shadow(-4px 4px 0 var(--pal-accent));
     --main-shadow: drop-shadow(-4px 4px 0 var(--pal-main));
     --main-shadow-small: drop-shadow(-2px 2px 0 var(--pal-main));
+
+    --acc-bold-offset: 0;
+}
+
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: local('OpenDyslexic'), url(./fonts/OpenDyslexic-Regular.otf) format('opentype');
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: local('OpenDyslexic'), url(./fonts/OpenDyslexic-Bold.otf) format('opentype');
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: local('OpenDyslexic'), url(./fonts/OpenDyslexic-Italic.otf) format('opentype');
+    font-style: italic;
+}
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: local('OpenDyslexic'), url(./fonts/OpenDyslexic-BoldItalic.otf) format('opentype');
+    font-weight: bold;
+    font-style: italic;
 }
 
 body {
     font-family: 'Lexend', sans-serif;
-    font-weight: 300;
+    font-weight: calc(400 + var(--acc-bold-offset));
 }
 
 body > #root > div {
@@ -96,7 +120,7 @@ body > #root > div {
     color: var(--pal-main);
 
     font-family: 'Lexend', sans-serif;
-    font-weight: 600;
+    font-weight: calc(500 + var(--acc-bold-offset));
     text-shadow: var(--accent-shadow);
 }
 
@@ -133,7 +157,7 @@ body > #root > div {
     box-sizing: border-box;
 
     font-family: 'Lexend', sans-serif;
-    font-weight: normal;
+    font-weight: calc(normal + var(--acc-bold-offset));
 
     pointer-events: auto;
 
@@ -225,7 +249,7 @@ body > #root > div {
 .sidenav-title {
     font-size: xx-large;
     font-family: 'Lexend', sans-serif;
-    font-weight: normal;
+    font-weight: calc(normal + var(--acc-bold-offset));
 
     text-align: center;
     padding-top: 10px;
@@ -335,13 +359,13 @@ body > #root > div {
 
 .App-sidenav .search-selected {
     color: var(--pal-font);
-    font-weight: bold;
+    font-weight: calc(bold + var(--acc-bold-offset));
 }
 
 .App-sidenav a {
     color: var(--pal-font);
     text-decoration-line: none;
-    font-weight: 500;
+    font-weight: calc(500 + var(--acc-bold-offset));
 }
 
 .animations-disabled .collapsing {
@@ -393,7 +417,7 @@ body > #root > div {
     border-radius: 10px;
     filter: var(--neutral-shadow);
 
-    height: 82vh;
+    min-height: 82vh;
     display: flex;
     flex-direction: column;
 
@@ -406,7 +430,7 @@ body > #root > div {
 }
 
 .content-card-body a {
-    font-weight: bold;
+    font-weight: calc(bold + var(--acc-bold-offset));
     text-decoration-line: underline;
 }
 
@@ -528,13 +552,23 @@ body > #root > div {
 .content-card-header {
     font-size: xx-large;
     font-family: 'Lexend', sans-serif;
-    font-weight: bold;
+    font-weight: calc(500 + var(--acc-bold-offset));
 
     margin-bottom: 3vh;
 }
 
 .content-card-footer {
     margin-top: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.content-card-footer button {
+    border: none;
+    background: none;
+
+    color: var(--pal-main);
 }
 
 @keyframes App-logo-spin {

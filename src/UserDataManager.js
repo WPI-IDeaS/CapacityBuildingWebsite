@@ -1,6 +1,8 @@
+import {lockPalette, unLockPalette} from "./ColorManager";
 
 
 const BOOKMARKS_KEY = "bookmarks";
+const ACCESSIBILITY_KEY = "accessibility";
 const RESPONSES_BASE_KEY = "qtc_responses";
 
 function correctBookmarkPath(path) {
@@ -67,6 +69,80 @@ export function getBookmarks() {
 
 export function clearBookmarks() {
     localStorage.setItem(BOOKMARKS_KEY, null);
+}
+
+function initializeAccessibility() {
+    return {
+        "dyslexic": false,
+        "animations": true,
+        "highContrast": false,
+        "colorLock": false,
+        "bionic": false,
+        "textSize": 0,
+        "textBoldness": 0
+    };
+}
+
+export function setAccessibleStyles() {
+    const acc = getAllAccessibility();
+    const r = document.querySelector(':root');
+
+    r.style.setProperty('--acc-bold-offset', acc["textBoldness"] * 100);
+
+    const accSheetAnim = document.getElementById("accessible-styling-animations").sheet;
+    accSheetAnim.disabled = acc["animations"];
+
+    const dysSheetAnim = document.getElementById("accessible-styling-dyslexia").sheet;
+    dysSheetAnim.disabled = !acc["dyslexic"];
+
+    if(acc["colorLock"]) {
+        lockPalette();
+    }
+    else {
+        unLockPalette();
+    }
+}
+
+export function getAllAccessibility() {
+    const raw = localStorage.getItem(ACCESSIBILITY_KEY);
+    let acc;
+    if (raw == null) {
+        acc = initializeAccessibility();
+        localStorage.setItem(ACCESSIBILITY_KEY, JSON.stringify(acc));
+    }
+    else {
+        acc = JSON.parse(raw);
+    }
+
+    return acc;
+}
+
+export function getAccessibilitySetting(setting) {
+    const raw = localStorage.getItem(ACCESSIBILITY_KEY);
+    let acc;
+    if (raw == null) {
+        acc = initializeAccessibility();
+        localStorage.setItem(ACCESSIBILITY_KEY, JSON.stringify(acc));
+    }
+    else {
+        acc = JSON.parse(raw);
+    }
+
+    return acc[setting];
+}
+
+export function setAccessibilitySetting(setting, newVal) {
+    const raw = localStorage.getItem(ACCESSIBILITY_KEY);
+    let acc;
+    if (raw == null) {
+        acc = initializeAccessibility();
+    }
+    else {
+        acc = JSON.parse(raw);
+    }
+
+    acc[setting] = newVal;
+    localStorage.setItem(ACCESSIBILITY_KEY, JSON.stringify(acc));
 }
 
 export function pageHasResponses(pageId) {

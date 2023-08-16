@@ -4,15 +4,19 @@ import Principles from "./Principles";
 import Planning from "./Planning";
 import Doing from "./Doing";
 import Extending from "./Extending";
-
 import {Home, ContentPage} from "./Master";
 import {setPalette} from "./ColorManager";
-import {getBookmarks} from "./UserDataManager";
+import {getBookmarks, setAccessibleStyles} from "./UserDataManager";
+import {useEffect} from "react";
 
 // LEAVE TRUE IF DEPLOYING TO GH PAGES
 const USE_HASH = false;
 
 export function CapacityRouter() {
+    useEffect(() => {
+        setAccessibleStyles();
+    }, [])
+
     if (USE_HASH) {
         const router = createHashRouter([
             {

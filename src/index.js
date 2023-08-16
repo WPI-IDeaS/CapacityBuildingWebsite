@@ -10,9 +10,39 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <React.StrictMode>
-    <CapacityRouter />
-  </React.StrictMode>
+    <React.StrictMode>
+        <style id="accessible-styling-dyslexia">
+            {
+                `
+                    *::before {
+                        font-family: OpenDyslexic, sans-serif !important;
+                    }
+                    *::after {
+                        font-family: OpenDyslexic, sans-serif !important;
+                    }
+                    * {
+                        font-family: OpenDyslexic, sans-serif !important;
+                    }
+                `
+            }
+        </style>
+        <style id="accessible-styling-animations">
+            {
+                `
+                    *::before {
+                        transition: none !important;
+                    }
+                    *::after {
+                        transition: none !important;
+                    }
+                    * {
+                        transition: none !important;
+                    }
+                `
+            }
+        </style>
+        <CapacityRouter/>
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

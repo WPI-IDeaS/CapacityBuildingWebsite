@@ -268,7 +268,7 @@ function SurveysWhatMattered() {
                     education. I asked him if we could use his survey and modified it based on my preliminary
                     interviews.</div>
             </div>,
-            <divs>
+            <div>
                 <img src={ConceptualFramework} alt="Figure 1. Elements of initial conceptual framework for development the Survey of Climate for Instructional Improvement (SCII) as modeled by Gappa et al. (2007)." style={{float: "left", height: "55vh", marginRight: "5px"}}/>
                 <div>This image helped me think about the “Key institution and/or Departmental Characteristics” that
                     influence faculty use of evidence or research based instructional practices like PBL. I spent time
@@ -276,7 +276,7 @@ function SurveysWhatMattered() {
                     department or institution context and what cultural, structural, climate based factors permit it and
                     foster it as well as asking how people are resourced and rewarded for doing PBL. doing PBL. So then,
                     resources and rewards became key categories on the survey.</div>
-            </divs>,
+            </div>,
             <div>
                 Citation: Walter, E. M., Beach, A., Henderson, C., & Williams, C. T. (2015). Describing Instructional Practice and Climate: Two New Instruments. In G. C. Weaver, W. D. Burgess, A. L. Childress, & L. Slakey (Eds.), Transforming Institutions: Undergraduate Stem Education for the 21st Century. West Lafayette, IN: Purdue University Press.
             </div>

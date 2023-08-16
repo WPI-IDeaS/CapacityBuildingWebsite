@@ -7,6 +7,7 @@
     text-decoration-line: underline;
 
     visibility: visible;
+    cursor: pointer;
 }
 
 .definable:hover {
@@ -15,7 +16,7 @@
 
 .definition {
     visibility: hidden;
-    font-weight: normal;
+    font-weight: normal + var(--acc-bold-offset);
 
     padding: 0;
     margin: 0;
@@ -25,7 +26,7 @@
 
 .definition-hovered {
     visibility: visible;
-    font-weight: normal;
+    font-weight: calc(normal + var(--acc-bold-offset));
 
     padding: 0;
     margin: 0;
