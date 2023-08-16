@@ -10,12 +10,17 @@ import StaffingChoice from "./images/diagrams/staffing_choice.png";
 function Planning() {
     return (
         [
-            "Planning",
+            "Planning Your Capacity Building",
             <div>
-                About
-            </div>,
-            <div>
-                About 2
+                <div>This is the Planning section! Use the left-hand sidebar or the links below to explore the
+                    following sections:
+                </div>
+                <ul>
+                    <li><Link to="/planning/building-capacity-vs-staffing" style={{color: "var(--pal-main)"}}>Choosing Capacity Building
+                        Over Staffing a Change Project</Link></li>
+                    <li><Link to="/planning/allocating-resources-and-budgeting" style={{color: "var(--pal-main)"}}>Allocating Resources and Budgeting</Link></li>
+                    <li><Link to="/planning/building-your-team" style={{color: "var(--pal-main)"}}>Building Your Team</Link></li>
+                </ul>
             </div>
         ]
     );
@@ -36,7 +41,7 @@ function VsStaffing() {
                 Most folks think about capacity building as vertical growth, stacking skills and increasing existing skills to fit known needs. We emphasize horizontal growth that allows for new directions that might be exploratory and acquiring novice level learning in addition to mastery.
             </div>,
             <div>
-                <img src={StaffingChoice} alt="Cylinders representing unidirectional and multidimensional CB." style={{float: "left"}}/>
+                <img src={StaffingChoice} alt="Cylinders representing unidirectional and multidimensional CB." style={{float: "left", height: "55vh", marginRight: "5px"}}/>
                 <div>This drawing is a metaphor of the choice we are presented with as leaders of capacity building change
                     efforts. Often we are asked to bring together a group of people to build capacity for a systemic
                     change effort at our institutions or organizations. As a leader, we often feel a need to clearly
@@ -47,7 +52,7 @@ function VsStaffing() {
                     “good” project management or “effective”</div>
             </div>,
             <div>
-                <img src={StaffingChoice} alt="Cylinders representing unidirectional and multidimensional CB." style={{float: "left"}}/>
+                <img src={StaffingChoice} alt="Cylinders representing unidirectional and multidimensional CB." style={{float: "left", height: "55vh", marginRight: "5px"}}/>
                 <div>leadership, but there are tensions and tradeoffs that can be intentionally and proactively
                     considered.
                     While each of these existing tools can be leveraged to good end at particular times, they also

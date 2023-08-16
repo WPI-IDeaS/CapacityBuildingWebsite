@@ -8,12 +8,16 @@ import {Link} from "react-router-dom";
 function Principles() {
     return (
         [
-            "Principles",
+            "Guiding Principles of Capacity Building",
             <div>
-                About
-            </div>,
-            <div>
-                About 2
+                <div>This is the Guiding Principles section! Use the left-hand sidebar or the links below to explore the
+                    following sections:</div>
+                <ul>
+                    <li><Link to="/principles/humility" style={{color: "var(--pal-main)"}}>Humility</Link></li>
+                    <li><Link to="/principles/center-the-people" style={{color: "var(--pal-main)"}}>Center the People</Link></li>
+                    <li><Link to="/principles/focus-on-design-not-outcomes" style={{color: "var(--pal-main)"}}>Focus on Design, Not Outcomes</Link></li>
+                    <li><Link to="/principles/trust-the-team" style={{color: "var(--pal-main)"}}>Trust the Team</Link></li>
+                </ul>
             </div>
         ]
     );

@@ -14,7 +14,14 @@ function Doing() {
         [
             "Doing Capacity Building",
             <div>
-                Doing
+                <div>This is the Doing section! Use the left-hand sidebar or the links below to explore the
+                    following sections:
+                </div>
+                <ul>
+                    <li><Link to="/doing/getting-to-know-your-system" style={{color: "var(--pal-main)"}}>Getting to Know Your System</Link></li>
+                    <li><Link to="/doing/developing-individuals-expertise" style={{color: "var(--pal-main)"}}>Developing Individuals' Expertise</Link></li>
+                    <li><Link to="/doing/building-shared-knowledge" style={{color: "var(--pal-main)"}}>Building Shared Knowledge</Link></li>
+                </ul>
             </div>
         ]
     );

@@ -39,7 +39,7 @@ function BodyCardStack(globalTitle, cardContents, startingCard=0, previousStack=
                         {
                             previousStack != null?
                                 <Link to={previousStack} onClick={() => setCurrentCard(startingCard)}>
-                                    <button>&lt;&lt; Previous Section</button>
+                                    <button>&lt;&lt; Previous Topic</button>
                                 </Link>
                                 :
                                 ""
@@ -60,7 +60,7 @@ function BodyCardStack(globalTitle, cardContents, startingCard=0, previousStack=
                         {
                             nextStack != null?
                                 <Link to={nextStack} onClick={() => setCurrentCard(startingCard)}>
-                                    <button>Next Section >></button>
+                                    <button>Next Topic >></button>
                                 </Link>
                                 :
                                 ""

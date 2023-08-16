@@ -28,6 +28,7 @@
     --main-shadow-small: drop-shadow(-2px 2px 0 var(--pal-main));
 
     --acc-bold-offset: 0;
+    --acc-size-offset: 0pt;
 }
 
 @font-face {
@@ -111,7 +112,7 @@ body > #root > div {
     display: flex;
     justify-content: flex-end;
 
-    font-size: 80pt;
+    font-size: calc(5em + var(--acc-size-offset));
     width: 100%;
     text-align: right;
     padding-top: 20px;
@@ -143,7 +144,7 @@ body > #root > div {
 
 
 .titleshape-blurb {
-    font-size: 24pt;
+    font-size: calc(2em + var(--acc-size-offset));
     height: 100%;
     text-align: left;
     padding: 4px;
@@ -173,7 +174,7 @@ body > #root > div {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
+    font-size: calc(calc(1em + 2vmin) + var(--acc-size-offset));;
 }
 
 .mentor {
@@ -247,7 +248,7 @@ body > #root > div {
 }
 
 .sidenav-title {
-    font-size: xx-large;
+    font-size: calc(2em + var(--acc-size-offset));
     font-family: 'Lexend', sans-serif;
     font-weight: calc(normal + var(--acc-bold-offset));
 
@@ -268,7 +269,7 @@ body > #root > div {
 
 .sidenav-acchead {
     margin-bottom: 5%;
-    font-size: small;
+    font-size: calc(0.9em + var(--acc-size-offset));
 
     display: flex;
     flex-direction: row;
@@ -326,9 +327,9 @@ body > #root > div {
 .search {
     background: color-mix(in srgb, var(--pal-main) var(--pal-blend2), var(--pal-white));
     border-radius: 4px;
-    font-size: medium;
     padding: 10px;
     margin: 8px;
+    font-size: calc(0.5em + var(--acc-size-offset));;
 
     border: none;
 
@@ -346,7 +347,8 @@ body > #root > div {
     display: inline-block;
     width: calc(100% - 32px);
 
-    color: var(--pal-font)
+    color: var(--pal-font);
+    font-size: calc(1em + var(--acc-size-offset));
 }
 
 .search input::placeholder {
@@ -421,7 +423,7 @@ body > #root > div {
     display: flex;
     flex-direction: column;
 
-    font-size: larger;
+    font-size: calc(1.2em + var(--acc-size-offset));
     color: var(--pal-black);
 }
 
@@ -489,7 +491,7 @@ body > #root > div {
     border-radius: 10px;
     filter: var(--neutral-shadow);
 
-    font-size: larger;
+    font-size: calc(1em + var(--acc-size-offset));
     color: black;
 }
 
@@ -550,7 +552,7 @@ body > #root > div {
 }
 
 .content-card-header {
-    font-size: xx-large;
+    font-size: calc(1.9em + var(--acc-size-offset));
     font-family: 'Lexend', sans-serif;
     font-weight: calc(500 + var(--acc-bold-offset));
 

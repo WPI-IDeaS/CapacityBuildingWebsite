@@ -68,7 +68,7 @@ function MyCBEntry({data}) {
     );
 }
 
-function MyCB() {
+function MyCB({children}) {
     let index = 1;
     return (
         <div className="cb-filter definitions-bound">
@@ -82,6 +82,7 @@ function MyCB() {
             </button>
             <br/>
             <HelpPopupButton defId="help_mycb" helpContent={<span>This page contains your compiled thoughts on capacity building, available for reference or to print! Use the button above to bring up a print dialogue.</span>} />
+            {children}
         </div>
     );
 }

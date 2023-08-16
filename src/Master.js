@@ -15,7 +15,12 @@ export function Home() {
 
     return (<div className="App-nobar">
         <div className='titlefloat'>
-            Directory
+            <div><div style={{fontSize: 60}}>WPI IDeaS Guide to</div>
+                <span style={{fontWeight: "bold"}}>Capacity Building</span></div>
+        </div>
+        <br/>
+        <div style={{fontSize: "x-large", float: "right"}}>
+            Click on any of the nodes below to get started... or click the + to see what's in each section first!
         </div>
         <Xwrapper>
             <MindMap/>

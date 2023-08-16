@@ -41,6 +41,33 @@ root.render(
                 `
             }
         </style>
+        <style id="accessible-styling-contrast">
+            {
+                `
+                    *::before {
+                        text-shadow: #FFFFFF 0 0 5px, #FFFFFF 0 0 10px;
+                        color: #000000 !important;
+                        --pal-icon-filter: brightness(0.00);
+                        --pal-blend2: 70%;
+                        --pal-blend3: 50%;
+                    }
+                    *::after {
+                        text-shadow: #FFFFFF 0 0 5px, #FFFFFF 0 0 10px;
+                        color: #000000 !important;
+                        --pal-icon-filter: brightness(0.00);
+                        --pal-blend2: 70%;
+                        --pal-blend3: 50%;
+                    }
+                    * {
+                        text-shadow: #FFFFFF 0 0 5px, #FFFFFF 0 0 10px;
+                        color: #000000 !important;
+                        --pal-icon-filter: brightness(0.00);
+                        --pal-blend2: 70%;
+                        --pal-blend3: 50%;
+                    }
+                `
+            }
+        </style>
         <CapacityRouter/>
     </React.StrictMode>
 );

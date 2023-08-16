@@ -10,10 +10,15 @@ function About() {
         [
             "About",
             <div>
-                About
-            </div>,
-            <div>
-                About 2
+                <div>This is the About section! Use the left-hand sidebar or the links below to explore the
+                    following sections:</div>
+                <ul>
+                    <li><Link to="/about/our-goals" style={{color: "var(--pal-main)"}}>Our Goals</Link></li>
+                    <li><Link to="/about/our-audience" style={{color: "var(--pal-main)"}}>Our Audience</Link></li>
+                    <li><Link to="/about/why-do-capacity-building" style={{color: "var(--pal-main)"}}>Why Do Capacity Building?</Link></li>
+                    <li><Link to="/about/what-is-capacity-building" style={{color: "var(--pal-main)"}}>What is Capacity Building?</Link></li>
+                    <li><Link to="/about/phases-of-capacity-building" style={{color: "var(--pal-main)"}}>Phases of Capacity Building</Link></li>
+                </ul>
             </div>
         ]
     );

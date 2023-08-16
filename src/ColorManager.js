@@ -35,9 +35,10 @@ const palettes = {
         link: "green",
         iconFilter: "none"
     },
+
     "lock": {
-        main: "violet",
-        accent: "green",
+        main: "blue",
+        accent: "violet",
         font: "black",
         link: "yellow",
         iconFilter: "brightness(0.00)"

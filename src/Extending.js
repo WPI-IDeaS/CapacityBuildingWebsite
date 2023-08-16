@@ -1,13 +1,19 @@
 import React from 'react';
 import {sn, sn_qtc, sn_topic} from "./SiteNode";
 import {setQuestionsColor} from "./QuestionsManager";
+import {Link} from "react-router-dom";
 
 function Extending() {
     return (
         [
-            "Extending",
+            "Extending Capacity Building",
             <div>
-
+                <div>This is the Extending section! Use the left-hand sidebar or the link below to explore the
+                    following section:
+                </div>
+                <ul>
+                    <li><Link to="/extending/sustaining-capacity" style={{color: "var(--pal-main)"}}>Sustaining Capacity</Link></li>
+                </ul>
             </div>
         ]
     );
@@ -116,12 +122,7 @@ function Questions() {
                         going from the group, knowing that they are welcome when this work fits their lives?</li></ol>
             </div>
         },
-        {id: "design", height: 1, text:
-            <div>
-                <b>Focus on Design</b>
-            </div>
-        },
-        {id: "trust", height: 3, text:
+        {id: "trust", height: 2, text:
                 <div>
                     <b>Trust the Team</b>
                     <ol>

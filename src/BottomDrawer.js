@@ -4,16 +4,14 @@ import {Link, useLocation} from "react-router-dom";
 import {addBookmark,isBookmarked, removeBookmark} from "./UserDataManager";
 import {IconAccessibility, IconAddBookmark, IconBookmarksList, IconMyCB, IconRemoveBookmark} from "./PaletteIcons";
 import {getOrderedFriendlyBookmarks} from "./Directory";
+import {AccessibilityCheckbox, AccessibilitySlider} from "./AccessibilityControl";
 
 import "./BottomDrawer.css"
 
 import Caret from "./images/icons/caret.svg"
 import MyCB from "./MyCB";
-import {AccessibilityCheckbox, AccessibilitySlider} from "./AccessibilityControl";
 
-function CentralScrollPanel() {
-
-}
+import CloseIcon from "./images/icons/close.svg";
 
 function BottomDrawer() {
     const currentPath = useLocation().pathname;
@@ -128,6 +126,7 @@ function BottomDrawer() {
                     <AccessibilityCheckbox setting="dyslexic" title="Dyslexia-friendly"/>
                     <AccessibilityCheckbox setting="animations" title="Allow Animations"/>
                     <AccessibilityCheckbox setting="colorLock" title="Color Lock"/>
+                    <AccessibilityCheckbox setting="highContrast" title="Enhanced Contrast"/>
                     <AccessibilitySlider setting="textSize" title="Text Size" min={-2} max={2} labelFn={(v) => {
                         if (v == 0) return "Default";
                         if (v > 0) return "+" + v;
@@ -142,7 +141,12 @@ function BottomDrawer() {
                 </div>
             </div>
             <div style={{position: "fixed", zIndex: 2, width: "calc(100% - var(--sidenav-width))", height: "100%", top: 0, left: "var(--sidenav-width)", display: showPanelState=="responses"? "block" : "none"}}>
-                <MyCB/>
+                <MyCB>
+                    <button className="panel-close-button" title="Close">
+                        <img src={CloseIcon} alt="Close" onClick={() => setShownPanel("")}/>
+                    </button>
+                </MyCB>
+
             </div>
         </div>
     );

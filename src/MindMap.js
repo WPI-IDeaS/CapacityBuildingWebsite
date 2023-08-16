@@ -141,7 +141,6 @@ function MindMap() {
                     <Xarrow
                         start={"arrow-connector-" + color}
                         end={id}
-                        startAnchor={["right", "left"]}
                         endAnchor={["right", "left"]}
                         showHead={false}
                         strokeWidth={2}

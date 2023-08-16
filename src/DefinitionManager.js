@@ -104,7 +104,7 @@ export function HelpPopupButton({defId, helpContent}) {
     //console.log(defMap);
 
     return (
-        <div className="help-definition">
+        <div className="help-definition" title="Help">
             <Def tag={defId}>
                 <MentorThink/>
             </Def>

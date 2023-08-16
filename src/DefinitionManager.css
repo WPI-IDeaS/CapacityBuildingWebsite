@@ -63,7 +63,6 @@
     height: fit-content;
 
     color: var(--pal-font);
-    font-size: large;
 
     background-color: var(--pal-main);
     box-sizing: border-box;
@@ -71,6 +70,12 @@
     border-radius: 20px;
 
     pointer-events: auto;
+}
+
+.def-blurb * {
+    font-size: calc(16pt + var(--acc-size-offset));
+    font-weight: calc(normal + var(--acc-bold-offset));;
+    line-height: 16pt;
 }
 
 .def-styled {

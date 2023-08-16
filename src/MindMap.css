@@ -38,7 +38,7 @@
     transition: 250ms;
 
     font-family: system-ui, sans-serif;
-    font-size: medium;
+    font-size: calc(medium + var(--acc-size-offset));
     line-height: 1.1;
     font-weight: calc(normal + var(--acc-bold-offset));
 }
@@ -59,15 +59,15 @@
 
     font-family: 'Lexend', sans-serif;
 
-    color: black;
+    color: var(--pal-black);
 }
 
 .major-text {
-    font-size: x-large;
+    font-size: calc(1.5em + var(--acc-size-offset));
 }
 
 .major-text-xl {
-    font-size: x-large;
+    font-size: calc(1.5em + var(--acc-size-offset));
     background: none;
 }
 

@@ -107,7 +107,7 @@ export function MindMapCore() {
             <circle id="arrow-connector-red" cx="467" cy="336" r="4" fill="none"/>
             <circle id="arrow-connector-yellow" cx="29" cy="349" r="4" fill="none"/>
             <circle id="arrow-connector-blue" cx="48" cy="109" r="4" fill="none"/>
-            <circle id="arrow-connector-green" cx="350" cy="30" r="4" fill="none"/>
+            <circle id="arrow-connector-green" cx="425" cy="90" r="4" fill="none"/>
             <circle id="arrow-connector-violet" cx="131" cy="455" r="4" fill="none"/>
         </svg>
     );

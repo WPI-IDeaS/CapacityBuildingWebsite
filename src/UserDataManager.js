@@ -95,6 +95,9 @@ export function setAccessibleStyles() {
     const dysSheetAnim = document.getElementById("accessible-styling-dyslexia").sheet;
     dysSheetAnim.disabled = !acc["dyslexic"];
 
+    const dysSheetCont = document.getElementById("accessible-styling-contrast").sheet;
+    dysSheetCont.disabled = !acc["highContrast"];
+
     if(acc["colorLock"]) {
         lockPalette();
     }
