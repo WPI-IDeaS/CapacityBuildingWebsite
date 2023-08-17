@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import '../Sketch3.css';
 
 import Sidebar from '../Sidebar';

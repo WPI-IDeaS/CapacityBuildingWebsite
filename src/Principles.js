@@ -1,8 +1,14 @@
-import React, {useState, useEffect} from 'react';
+/**
+ * Principles section content generation functions.
+ *
+ * See Directory.js and Master.js for how these are used.
+ */
+
+import React from 'react';
 import {sn, sn_topic} from "./SiteNode";
 import {setQuestionsColor} from "./QuestionsManager";
 import {addDefs, Def} from "./DefinitionManager";
-import {MentorAttention, MentorNeutral, MentorTalk} from "./MentorFace";
+import {MentorTalk} from "./MentorFace";
 import {Link} from "react-router-dom";
 
 function Principles() {

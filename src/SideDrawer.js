@@ -1,10 +1,17 @@
-import React, {useEffect, useState} from 'react';
+/**
+ * Simple, tiny drawer for storing a link back to the homepage.
+ */
+
+import React from 'react';
 import {Link} from "react-router-dom";
 
 import "./SideDrawer.css"
 
 import {IconHorizontalCaret as Caret, IconMindMap} from "./PaletteIcons";
 
+/**
+ * Top left hand corner side drawer (just a collapsed link back to the mind map)
+ */
 function SideDrawer() {
     return (
         <div>

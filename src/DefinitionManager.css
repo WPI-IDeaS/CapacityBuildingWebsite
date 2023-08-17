@@ -16,7 +16,7 @@
 
 .definition {
     visibility: hidden;
-    font-weight: normal + var(--acc-bold-offset);
+    font-weight: calc(normal + var(--acc-bold-offset));
 
     padding: 0;
     margin: 0;
@@ -28,14 +28,9 @@
     visibility: visible;
     font-weight: calc(normal + var(--acc-bold-offset));
 
-    padding: 0;
-    margin: 0;
     filter: var(--neutral-shadow);
 
-    position: static;
-
     /*transform: translate(0%, 40%);*/
-    z-index: 3;
 }
 
 .definition-hovered a{
@@ -52,6 +47,8 @@
     margin: 0;
 
     pointer-events: none;
+
+    z-index: 5;
 }
 
 .def-blurb {
@@ -70,15 +67,24 @@
     border-radius: 20px;
 
     pointer-events: auto;
+    font-size: 16pt;
+    line-height: 28pt;
 }
 
 .def-blurb * {
-    font-size: calc(16pt + var(--acc-size-offset));
-    font-weight: calc(normal + var(--acc-bold-offset));;
-    line-height: 16pt;
+    font-size: calc(1em + var(--acc-size-offset));
+    font-weight: calc(400 + var(--acc-bold-offset));;
 }
 
 .def-styled {
     fill: var(--pal-main);
     position: absolute;
+}
+
+.help-definition:focus-within .thinking {
+    display: none;
+}
+
+.help-definition:not(:focus-within) .answering {
+    display: none;
 }

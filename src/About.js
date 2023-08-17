@@ -1,4 +1,10 @@
-import React, {useState, useEffect} from 'react';
+/**
+ * About section content generation functions.
+ *
+ * See Directory.js and Master.js for how these are used.
+ */
+
+import React from 'react';
 import {sn, sn_topic} from "./SiteNode";
 import {addDefs, Def} from "./DefinitionManager";
 import {MentorAttention, MentorHappy, MentorNeutral, MentorTalk} from "./MentorFace";

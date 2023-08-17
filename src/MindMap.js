@@ -1,3 +1,7 @@
+/**
+ * Homepage mind map directory.
+ */
+
 import React, {useEffect, useState} from 'react';
 //import './Sketch3.css';
 import './MindMap.css';
@@ -6,9 +10,13 @@ import Xarrow, {useXarrow} from "react-xarrows";
 import {Link} from "react-router-dom";
 import {MindMapCore} from "./PaletteIcons";
 
+/**
+ * Element for a full-page mind map directory generated from the site's structure in Directory.js
+ */
 function MindMap() {
     const updateXarrow = useXarrow();
 
+    // Ensuring lines get redrawn when the map changes shape
     let [tranCt, setTranCt] = useState(0);
     useEffect(() => {
         const onTransitionStart = (event) => (setTranCt(tranCt + 1));
@@ -30,6 +38,7 @@ function MindMap() {
         }
     });
 
+    // Will not generate any columns deeper than this in either direction
     const depthLimit = 3;
 
     let posDepth = 0;
@@ -42,10 +51,13 @@ function MindMap() {
         ]
     ];
 
+    // For finding the correct index into cols for a given depth and direction
+    // (only guaranteed to function once cols is no longer changing...)
     function dptIdx(isNeg, depth) {
         return (isNeg ? -1 * depth : depth) + negDepth;
     }
 
+    // Handle expanding/recursive retraction of nodes
     function handleExpanderClick(e) {
         const toggleThese = document.getElementsByClassName(e.target.dataset.classToClose);
 
@@ -89,6 +101,7 @@ function MindMap() {
         updateXarrow();
     }
 
+    // Add properly formatted JSX for a directory node to cols, and then traverse children to do the same for each of them
     function traverseDir(dir, isNeg, depth, color, lastPoint, parentId, id, extraMargin = false, titleStyle = false) {
         if (isNeg) {
             if (depth > negDepth) {
@@ -137,6 +150,7 @@ function MindMap() {
         let connector = "";
         if (parentId === "MAIN") {
             connector = (
+                // Connectors to central hub
                 <div className="arrow-holder">
                     <Xarrow
                         start={"arrow-connector-" + color}
@@ -150,6 +164,7 @@ function MindMap() {
             );
         } else {
             connector = (
+                // Connectors between two nodes
                 <div className="arrow-holder">
                     <Xarrow
                         start={"expander-" + parentId}
@@ -180,6 +195,7 @@ function MindMap() {
             </div>
         );
 
+        // Iterate through the children of the directory item
         if (dir.children !== null && depth < depthLimit) {
             let isFirst = true;
             let initId = 1;
@@ -190,6 +206,7 @@ function MindMap() {
         }
     }
 
+    // Initial traversal of the first directory layer to start making the map
     function createMap() {
         let thisOneNeg = true;
         let initId = 1;

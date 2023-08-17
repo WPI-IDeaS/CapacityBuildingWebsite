@@ -38,7 +38,7 @@
     transition: 250ms;
 
     font-family: system-ui, sans-serif;
-    font-size: calc(medium + var(--acc-size-offset));
+    font-size: calc(1em + var(--acc-size-offset));
     line-height: 1.1;
     font-weight: calc(normal + var(--acc-bold-offset));
 }

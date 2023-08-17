@@ -1,4 +1,10 @@
-import React, {useState, useEffect} from 'react';
+/**
+ * Doing section content generation functions.
+ *
+ * See Directory.js and Master.js for how these are used.
+ */
+
+import React from 'react';
 import {sn, sn_qtc, sn_topic} from "./SiteNode";
 import {setQuestionsColor} from "./QuestionsManager";
 import {Link} from "react-router-dom";
@@ -6,7 +12,6 @@ import {Link} from "react-router-dom";
 import ConceptualFramework from "./images/diagrams/conceptual_framework.png";
 import DecisionMaking from "./images/diagrams/decision_making.png";
 import AspectOutcome from "./images/diagrams/aspect_outcome.png";
-
 
 
 function Doing() {
@@ -571,19 +576,19 @@ function GettingToKnowQuestions() {
                     </ol>
                 </div>
         },
+        {id: "trust", height: 1, text:
+                <div>
+                    <b>Trust the Team</b>
+                    <ol>
+                        <li>How do we schedule this work? Who is responsible for deadlines?</li>
+                    </ol>
+                </div>
+        },
         {id: "design", height: 1, text:
                 <div>
                     <b>Focus on Design</b>
                     <ol>
                         <li>How do we share the learning from any of these methods and allow others to provide input?</li>
-                    </ol>
-                </div>
-        },
-        {id: "trust", height: 3, text:
-                <div>
-                    <b>Trust the Team</b>
-                    <ol>
-                        <li>How do we schedule this work? Who is responsible for deadlines?</li>
                     </ol>
                 </div>
         }
@@ -1241,7 +1246,7 @@ function SharedKnowledgeQuestions() {
                     </ol>
                 </div>
         },
-        {id: "trust", height: 3, text:
+        {id: "trust", height: 1, text:
                 <div>
                     <b>Trust the Team</b>
                     <ol>

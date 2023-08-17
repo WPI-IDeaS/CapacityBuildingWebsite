@@ -1,4 +1,8 @@
-import React, {useState, useEffect} from 'react';
+/**
+ * Major routing endpoints.
+ */
+
+import React from 'react';
 import {Xwrapper} from "react-xarrows";
 import MindMap from "./MindMap";
 import Sidebar from "./Sidebar";
@@ -6,10 +10,11 @@ import BodyCardStack from "./BodyCardStack";
 
 import './Sketch3.css';
 import {setPalette} from "./ColorManager";
-import {useLocation} from "react-router-dom";
-import {addBookmark, clearBookmarks, getAllAccessibility} from "./UserDataManager";
 import BottomDrawer from "./BottomDrawer";
 
+/**
+ * Homepage with a mind map-style directory.
+ */
 export function Home() {
     setPalette("green");
 
@@ -28,6 +33,15 @@ export function Home() {
     </div>);
 }
 
+/**
+ * Content page with surrounding tools.
+ * Content window generally plays host to a BodyCardStack but can be supplied with a different element.
+ *
+ * @param content content to display in the window; will be wrapped in individual cards if it is a list.
+ * @param bigTitle title to show in the top right.
+ * @param prev page before this one in the directory, if any.
+ * @param next page after this one in the directory, if any.
+ */
 export function ContentPage({content, bigTitle, prev, next}) {
     function titleBubble(title) {
         return (<span className='titleshape'>

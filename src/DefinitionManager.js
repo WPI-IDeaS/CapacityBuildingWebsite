@@ -1,10 +1,20 @@
+/**
+ * Manager for floating informational popup elements (such as term clarifications on content pages)
+ */
+
 import React from 'react';
 
 import "./DefinitionManager.css";
 import {MentorAnswer, MentorThink} from "./MentorFace";
 
+// Maps short string tags to long JSX definitions
 const defMap = {};
 
+/**
+ * Make a definition speech bubble from the (already logged) definition matching this tag
+ * @param tag
+ * @returns JSX for a bubble.
+ */
 function defBubble(tag) {
     return (
         <span className='definition def-bubble' onBlur={defUnFocus} tabIndex="-1">
@@ -20,16 +30,17 @@ function defBubble(tag) {
     );
 }
 
+/**
+ * Handle focus shifting to a definable or definition (opening it/keeping it open)
+ * @param e event.
+ */
 function defFocus(e) {
     //console.log(e.target)
     if(!e.target.classList.contains("def-bubble") && !e.target.classList.contains("definable")){
         return;
     }
 
-    /*if (e.target.tagName == "A") {
-        defUnFocus(document.querySelector(".definition_hovered"));
-        return;
-    }*/
+
 
     const bub = e.target.parentElement.children[0];
     bub.classList.add('definition-hovered');
@@ -39,6 +50,7 @@ function defFocus(e) {
 
     const tail = bub.children[0];
 
+    // Below here we do some math to keep bubbles within the active content area
     const defActualOffsets = bub.getBoundingClientRect();
 
     const textOffsets = e.target.getBoundingClientRect();
@@ -65,11 +77,15 @@ function defFocus(e) {
 
     tail.style.left = 10;
 
-    const maxLeft = (cardOffsets.right + 15) - myWidth - defActualOffsets.left;
-    const minLeft = (cardOffsets.left - 15) - defActualOffsets.left;
+    const maxLeft = (cardOffsets.right + 10) - myWidth - defActualOffsets.left;
+    const minLeft = (cardOffsets.left - 10) - defActualOffsets.left;
     bubBox.style.left = Math.min(Math.max(10 - (myWidth/2), minLeft), maxLeft) + 'px';
 }
 
+/**
+ * Handle loss of focus from a definition.
+ * @param e event.
+ */
 function defUnFocus(e) {
     if (e.relatedTarget != null && (e.relatedTarget.matches(".definition-hovered") || e.relatedTarget.matches(".definition-hovered *"))) return;
     const toSetBack = e.target.parentElement.querySelector(".definition-hovered");
@@ -78,6 +94,12 @@ function defUnFocus(e) {
     }
 }
 
+/**
+ * Generate JSX for a definition.
+ * @param text clickable text for toggling the definition
+ * @param tag tag of the definition to use.
+ * @returns {JSX.Element} def text span with attached bubble.
+ */
 export function MakeDef(text, tag) {
     return (
         <span>
@@ -89,16 +111,31 @@ export function MakeDef(text, tag) {
     );
 }
 
+/**
+ * Span containing a highlighted interactable that toggles a clarification popup.
+ *
+ * @param props children, the content to define, and tag, the tag for the desired definition text.
+ */
 export function Def(props) {
     return MakeDef(props.children, props.tag);
 }
 
+/**
+ * Add one or more new definition JSXs.
+ * @param entries object containing k/v pairs to add to or replace in the map (a string tag / a JSX def).
+ */
 export function addDefs(entries) {
     for (const [key, value] of Object.entries(entries)) {
         defMap[key.toUpperCase()] = value;
     }
 }
 
+/**
+ * Shorthand element for creating help buttons that use definition-style popups.
+ *
+ * @param defId tag to register the new definition under.
+ * @param helpContent
+ */
 export function HelpPopupButton({defId, helpContent}) {
     addDefs({[defId]: helpContent});
     //console.log(defMap);
@@ -107,6 +144,7 @@ export function HelpPopupButton({defId, helpContent}) {
         <div className="help-definition" title="Help">
             <Def tag={defId}>
                 <MentorThink/>
+                <MentorAnswer/>
             </Def>
         </div>
     );
