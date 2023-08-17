@@ -1,10 +1,14 @@
-import {BrowserRouter as Router, Routes, Route, useParams, createHashRouter, RouterProvider} from "react-router-dom";
+/**
+ * Directory manager for handling routing and keeping track of the page tree.
+ */
+
+import {BrowserRouter as Router, createHashRouter, Route, RouterProvider, Routes, useParams} from "react-router-dom";
 import About from "./About";
 import Principles from "./Principles";
 import Planning from "./Planning";
 import Doing from "./Doing";
 import Extending from "./Extending";
-import {Home, ContentPage} from "./Master";
+import {ContentPage, Home} from "./Master";
 import {setPalette} from "./ColorManager";
 import {getBookmarks, setAccessibleStyles} from "./UserDataManager";
 import {useEffect} from "react";
@@ -12,6 +16,18 @@ import {useEffect} from "react";
 // LEAVE TRUE IF DEPLOYING TO GH PAGES
 const USE_HASH = false;
 
+// Site directory: makeDirectory creates the subtree for each depth 1 page
+export const siteDirectory = [
+    About.makeDirectory(),
+    Principles.makeDirectory(),
+    Planning.makeDirectory(),
+    Doing.makeDirectory(),
+    Extending.makeDirectory()
+];
+
+/**
+ * Main router element for navigation. Leads into a recursive routing system.
+ */
 export function CapacityRouter() {
     useEffect(() => {
         setAccessibleStyles();
@@ -37,15 +53,9 @@ export function CapacityRouter() {
     );
 }
 
-
-export const siteDirectory = [
-    About.makeDirectory(),
-    Principles.makeDirectory(),
-    Planning.makeDirectory(),
-    Doing.makeDirectory(),
-    Extending.makeDirectory()
-];
-
+/**
+ * Routes for distinguishing between the homepage and attempts to reach content pages
+ */
 function CapacityRouterRoutes() {
     return (
         <Routes>
@@ -55,16 +65,27 @@ function CapacityRouterRoutes() {
     );
 }
 
-function findNodeByLinkIn(parent, link) {
+/**
+ * Get node corresponding to this link fragment, if any, within the given list of nodes
+ *
+ * @param dirs list of nodes to look through.
+ * @param link link to match.
+ * @returns {undefined|*} the matched node, if any.
+ */
+function findNodeByLinkIn(dirs, link) {
     const linkLower = link.toLowerCase();
-    for (let i in parent) {
-        if (parent[i].link == linkLower) {
-            return parent[i];
+    for (let i in dirs) {
+        if (dirs[i].link == linkLower) {
+            return dirs[i];
         }
     }
     return undefined;
 }
 
+/**
+ * Recursive routes helper for navigating tree.
+ * Initial routes, and gleans some information from the broad section (e.g. for setting the top right title)
+ */
 function BroadCapacityRouterHelper() {
     const {section} = useParams();
 
@@ -80,6 +101,12 @@ function BroadCapacityRouterHelper() {
     );
 }
 
+/**
+ * Recursive routes helper for navigating tree beyond depth 1.
+ *
+ * @param currentNode current node in navigation.
+ * @param bigTitle broad section title to pass down.
+ */
 function CapacityRouterHelper({currentNode, bigTitle}) {
     const {section} = useParams();
 
@@ -96,6 +123,12 @@ function CapacityRouterHelper({currentNode, bigTitle}) {
     );
 }
 
+/**
+ * Recursively builds expanded links for all in a list.
+ *
+ * @param directory list of nodes to iterate though.
+ * @param pathSoFar path constructed thus far (to add on to).
+ */
 function expandLinksHelper(directory, pathSoFar) {
     let lastNode = null;
     for (const node of directory) {
@@ -113,10 +146,18 @@ function expandLinksHelper(directory, pathSoFar) {
     }
 }
 
+/**
+ * Adds "expanded" full path links to the tree for all nodes.
+ */
 function expandAllLinks() {
     expandLinksHelper(siteDirectory, "")
 }
 
+/**
+ * Traverses directory and cross references with user data to make an ordered list of their bookmarks.
+ *
+ * @returns {*[]} a list of shorthand bookmark objects (with title, formatted path, and link) in directory order.
+ */
 export function getOrderedFriendlyBookmarks() {
     const marks = getBookmarks();
     const friendlyMarks = [];

@@ -1,3 +1,9 @@
+/**
+ * Extending section content generation functions.
+ *
+ * See Directory.js and Master.js for how these are used.
+ */
+
 import React from 'react';
 import {sn, sn_qtc, sn_topic} from "./SiteNode";
 import {setQuestionsColor} from "./QuestionsManager";
@@ -104,16 +110,15 @@ function Tradeoffs() {
 
 function Questions() {
     return [
-        {id: "humility", height: 1, text:
-            <div>
-                <b>Humility</b>
-                <ol><li>Have we acknowledged appropriately the contributions of individual team members?</li>
-                    <li>Have we centered the team members, rather than ourselves (the initiative leads), in
-                        communications
-                        about progress, deliverables, outcomes?</li></ol>
-            </div>
+        {id: "trust", height: 1, text:
+                <div>
+                    <b>Trust the Team</b>
+                    <ol>
+                        <li>Have we provided ways for team members to contribute when they are able?</li>
+                    </ol>
+                </div>
         },
-        {id: "center", height: 1, text:
+        {id: "center", height: 2, text:
             <div>
                 <b>Center the People</b>
                 <ol><li>Have we made it clear that participants are valued for the time that they CAN contribute?</li>
@@ -122,12 +127,13 @@ function Questions() {
                         going from the group, knowing that they are welcome when this work fits their lives?</li></ol>
             </div>
         },
-        {id: "trust", height: 2, text:
+        {id: "humility", height: 2, text:
                 <div>
-                    <b>Trust the Team</b>
-                    <ol>
-                        <li>Have we provided ways for team members to contribute when they are able?</li>
-                    </ol>
+                    <b>Humility</b>
+                    <ol><li>Have we acknowledged appropriately the contributions of individual team members?</li>
+                        <li>Have we centered the team members, rather than ourselves (the initiative leads), in
+                            communications
+                            about progress, deliverables, outcomes?</li></ol>
                 </div>
         }
     ];

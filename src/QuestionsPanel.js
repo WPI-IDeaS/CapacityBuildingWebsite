@@ -1,6 +1,14 @@
+/**
+ * Panel used in the content window for QTC (questions to consider) sections.
+ */
+
 import React from 'react';
 import {getResponse, updateResponse} from "./UserDataManager";
+import {HelpPopupButton} from "./DefinitionManager";
 
+/**
+ * Panel component.
+ */
 class QuestionsPanel extends React.Component {
     constructor(props) {
         super(props);
@@ -9,6 +17,13 @@ class QuestionsPanel extends React.Component {
         this.state.currentOpen = null;
     }
 
+    /**
+     *
+     * @param prompt question card text.
+     * @param height grid height to use for placement.
+     * @param panelId id of the panel this card lives in.
+     * @param myId id to use for logging this specific question (unique from others on this panel)
+     */
     QuestionCard(prompt, height, panelId, myId) {
         const initialResponse = getResponse(panelId, myId);
 
@@ -38,6 +53,9 @@ class QuestionsPanel extends React.Component {
         );
     }
 
+    /**
+     * Log new responses to localStorage.
+     */
     updateAllResponses() {
         const inputBoxes = document.querySelectorAll(".question-response");
         for (const box of inputBoxes) {
@@ -45,12 +63,14 @@ class QuestionsPanel extends React.Component {
         }
     }
 
+    // Make sure data is saved when the user leaves!
     componentDidMount() {
         window.onbeforeunload = () => {
             this.updateAllResponses();
         }
     }
 
+    // Make sure data is saved when the user leaves! (for extra measure)
     componentWillUnmount() {
         window.onbeforeunload = undefined;
         this.updateAllResponses();
@@ -67,8 +87,11 @@ class QuestionsPanel extends React.Component {
         }
 
         return (
-            <div className="question-grid" style={{gridTemplateRows: "repeat(" + Math.ceil(totalHeight / 2) + ", auto)"}}>
-                {cards}
+            <div className="questions-outer">
+                <HelpPopupButton defId="help_qtc" helpContent={<span>Your answers to these questions will be consolidated into one location for you and formatted into Your Capacity Building Guide. This guide will let you see how you interpret capacity building in your own context and will be available for you at any time! To view Your Capacity Building Guide, click the clipboard in the expandable menu at the bottom of the screen.</span>} />
+                <div className="question-grid definitions-bound" style={{gridTemplateRows: "repeat(" + Math.ceil(totalHeight / 2) + ", auto)"}}>
+                    {cards}
+                </div>
             </div>
         );
     }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './Sketch1.css';
 
 import questionmark from './icons/questionmark.png';

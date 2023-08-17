@@ -1,8 +1,21 @@
+/**
+ * Page-bottom toolbox.
+ */
+
 import React, {useEffect, useState} from 'react';
 import {Link, useLocation} from "react-router-dom";
 
-import {addBookmark,isBookmarked, removeBookmark} from "./UserDataManager";
-import {IconAccessibility, IconAddBookmark, IconBookmarksList, IconMyCB, IconRemoveBookmark} from "./PaletteIcons";
+import {addBookmark, isBookmarked, removeBookmark} from "./UserDataManager";
+import {
+    IconAccessibility,
+    IconAccessibilityOpen,
+    IconAddBookmark,
+    IconBookmarksList,
+    IconBookmarksListOpen,
+    IconMyCB,
+    IconMyCBOpen,
+    IconRemoveBookmark
+} from "./PaletteIcons";
 import {getOrderedFriendlyBookmarks} from "./Directory";
 import {AccessibilityCheckbox, AccessibilitySlider} from "./AccessibilityControl";
 
@@ -13,11 +26,15 @@ import MyCB from "./MyCB";
 
 import CloseIcon from "./images/icons/close.svg";
 
+/**
+ * Drawer filled with goodies such as bookmarks, settings, and user response logs.
+ */
 function BottomDrawer() {
     const currentPath = useLocation().pathname;
     const [bookmarkSolidState, setBookmarkSolid] = useState(isBookmarked(currentPath));
     const [showPanelState, setShownPanel] = useState("");
 
+    // Toggle the bookmark on this page
     function toggleBookmark() {
         if (bookmarkSolidState) {
             removeBookmark(currentPath);
@@ -31,6 +48,7 @@ function BottomDrawer() {
         }
     }
 
+    // Toggle bookmarks panel
     function toggleSavedPages() {
         if (showPanelState == "bookmarks") {
             setShownPanel("");
@@ -40,6 +58,7 @@ function BottomDrawer() {
         }
     }
 
+    // Toggle My CB panel
     function toggleResponses() {
         if (showPanelState == "responses") {
             setShownPanel("");
@@ -49,6 +68,7 @@ function BottomDrawer() {
         }
     }
 
+    // Toggle accessibility panel
     function toggleAccessibility() {
         if (showPanelState == "accessibility") {
             setShownPanel("");
@@ -58,6 +78,7 @@ function BottomDrawer() {
         }
     }
 
+    // Close a floating panel (if one is open) (My CB is not a floating panel)
     function closePanel() {
         if (showPanelState == "responses") return;
         setShownPanel("");
@@ -78,7 +99,12 @@ function BottomDrawer() {
                 <div className="collapse" id="collapseDrawer">
                     <div className="drawer-content">
                         <button title="Your Capacity Building" onClick={toggleResponses}>
-                            <IconMyCB/>
+                            {
+                                showPanelState=="responses" ?
+                                    <IconMyCBOpen/>
+                                    :
+                                    <IconMyCB/>
+                            }
                         </button>
                         <button title={bookmarkSolidState ? "Remove from Saved Pages" : "Save this page"}
                                 onClick={toggleBookmark}>
@@ -90,10 +116,20 @@ function BottomDrawer() {
                             }
                         </button>
                         <button title="Your Saved Pages" onClick={toggleSavedPages}>
-                            <IconBookmarksList/>
+                            {
+                                showPanelState=="bookmarks" ?
+                                    <IconBookmarksListOpen/>
+                                    :
+                                    <IconBookmarksList/>
+                            }
                         </button>
                         <button title="Accessibility settings" onClick={toggleAccessibility}>
-                            <IconAccessibility/>
+                            {
+                                showPanelState=="accessibility" ?
+                                    <IconAccessibilityOpen/>
+                                    :
+                                    <IconAccessibility/>
+                            }
                         </button>
                     </div>
                 </div>
@@ -127,7 +163,7 @@ function BottomDrawer() {
                     <AccessibilityCheckbox setting="animations" title="Allow Animations"/>
                     <AccessibilityCheckbox setting="colorLock" title="Color Lock"/>
                     <AccessibilityCheckbox setting="highContrast" title="Enhanced Contrast"/>
-                    <AccessibilitySlider setting="textSize" title="Text Size" min={-2} max={2} labelFn={(v) => {
+                    <AccessibilitySlider setting="textSize" title="Text Size" min={-6} max={6} labelFn={(v) => {
                         if (v == 0) return "Default";
                         if (v > 0) return "+" + v;
                         return v;

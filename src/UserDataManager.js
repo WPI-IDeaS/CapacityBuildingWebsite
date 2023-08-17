@@ -1,10 +1,16 @@
+/**
+ * In-between for localStorage; also applies personalization settings.
+ */
+
 import {lockPalette, unLockPalette} from "./ColorManager";
 
 
+// localStorage keys
 const BOOKMARKS_KEY = "bookmarks";
 const ACCESSIBILITY_KEY = "accessibility";
 const RESPONSES_BASE_KEY = "qtc_responses";
 
+// trims and reformats a path to a standard form for saving as a bookmark.
 function correctBookmarkPath(path) {
     let temp = path;
     if (path.charAt(0) == '/') {
@@ -14,6 +20,10 @@ function correctBookmarkPath(path) {
     return temp.toLowerCase();
 }
 
+/**
+ * Add a new bookmark.
+ * @param toMark path to mark.
+ */
 export function addBookmark(toMark) {
     const raw = localStorage.getItem(BOOKMARKS_KEY);
     let currentBookmarks = raw == null? [] : JSON.parse(raw);
@@ -30,6 +40,10 @@ export function addBookmark(toMark) {
     localStorage.setItem(BOOKMARKS_KEY, JSON.stringify(currentBookmarks));
 }
 
+/**
+ * Remove a bookmark.
+ * @param toUnMark path to unmark.
+ */
 export function removeBookmark(toUnMark) {
     const raw = localStorage.getItem(BOOKMARKS_KEY);
     if (raw == null) return;
@@ -47,6 +61,11 @@ export function removeBookmark(toUnMark) {
     localStorage.setItem(BOOKMARKS_KEY, JSON.stringify(currentBookmarks));
 }
 
+/**
+ * Is this path bookmarked?
+ * @param path to check
+ * @returns {boolean|*} whether it's already marked.
+ */
 export function isBookmarked(path) {
     const raw = localStorage.getItem(BOOKMARKS_KEY);
     if (raw == null) return false;
@@ -57,6 +76,10 @@ export function isBookmarked(path) {
     return currentBookmarks.includes(correctBookmarkPath(path));
 }
 
+/**
+ * Get a full list of bookmarked paths.
+ * @returns {*[]|any} the list of paths.
+ */
 export function getBookmarks() {
     const raw = localStorage.getItem(BOOKMARKS_KEY);
     if (raw == null) return [];
@@ -67,10 +90,16 @@ export function getBookmarks() {
     return currentBookmarks;
 }
 
+/**
+ * Delete all stored bookmarks.
+ */
 export function clearBookmarks() {
     localStorage.setItem(BOOKMARKS_KEY, null);
 }
 
+/**
+ * Get an object with default accessibility settings.
+ */
 function initializeAccessibility() {
     return {
         "dyslexic": false,
@@ -83,11 +112,15 @@ function initializeAccessibility() {
     };
 }
 
+/**
+ * Apply accessibility settings from localStorage to the current session.
+ */
 export function setAccessibleStyles() {
     const acc = getAllAccessibility();
     const r = document.querySelector(':root');
 
     r.style.setProperty('--acc-bold-offset', acc["textBoldness"] * 100);
+    r.style.setProperty('--acc-size-offset', acc["textSize"] + "pt");
 
     const accSheetAnim = document.getElementById("accessible-styling-animations").sheet;
     accSheetAnim.disabled = acc["animations"];
@@ -106,6 +139,9 @@ export function setAccessibleStyles() {
     }
 }
 
+/**
+ * Get an object containing all current accessibility preference values.
+ */
 export function getAllAccessibility() {
     const raw = localStorage.getItem(ACCESSIBILITY_KEY);
     let acc;
@@ -120,6 +156,11 @@ export function getAllAccessibility() {
     return acc;
 }
 
+/**
+ * Get the current value of a setting.
+ * @param setting the key for the setting.
+ * @returns {*} the setting's value.
+ */
 export function getAccessibilitySetting(setting) {
     const raw = localStorage.getItem(ACCESSIBILITY_KEY);
     let acc;
@@ -134,6 +175,11 @@ export function getAccessibilitySetting(setting) {
     return acc[setting];
 }
 
+/**
+ * Set a setting's value.
+ * @param setting the setting's key.
+ * @param newVal the new value.
+ */
 export function setAccessibilitySetting(setting, newVal) {
     const raw = localStorage.getItem(ACCESSIBILITY_KEY);
     let acc;
@@ -148,10 +194,21 @@ export function setAccessibilitySetting(setting, newVal) {
     localStorage.setItem(ACCESSIBILITY_KEY, JSON.stringify(acc));
 }
 
+/**
+ * Does this page have answers to any questions?
+ * @param pageId the ID of the page to query.
+ * @returns {boolean} whether anything on the page has a response.
+ */
 export function pageHasResponses(pageId) {
     return localStorage.getItem(RESPONSES_BASE_KEY + "_" + pageId) != null;
 }
 
+/**
+ * Update the response to a question card.
+ * @param pageId ID of the page the question card is on.
+ * @param questionId ID of the card itself.
+ * @param newContent the new response.
+ */
 export function updateResponse(pageId, questionId, newContent) {
     const thisKey = RESPONSES_BASE_KEY + "_" + pageId;
 
@@ -173,6 +230,12 @@ export function updateResponse(pageId, questionId, newContent) {
     localStorage.setItem(thisKey, JSON.stringify(currentResponses));
 }
 
+/**
+ * Get the response to a specific question card.
+ * @param pageId ID of the page the question card is on.
+ * @param questionId ID of the card itself.
+ * @returns {string|*} the response text.
+ */
 export function getResponse(pageId, questionId) {
     const thisKey = RESPONSES_BASE_KEY + "_" + pageId;
 

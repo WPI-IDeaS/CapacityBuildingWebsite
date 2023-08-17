@@ -1,8 +1,16 @@
+/**
+ * Accessibility option gizmos.
+ */
+
 import React, {useState} from "react";
 
 import "./AccessibilityControl.css"
 import {getAccessibilitySetting, setAccessibilitySetting, setAccessibleStyles} from "./UserDataManager";
 
+/**
+ * Flexbox for each control row.
+ * @param children items in row.
+ */
 function AccessibilityControlBox({children}) {
     return (
         <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
@@ -11,6 +19,12 @@ function AccessibilityControlBox({children}) {
     );
 }
 
+/**
+ * Binary toggle for an accessibility setting.
+ *
+ * @param setting localStorage accessibility object key to change.
+ * @param title friendly name for the setting.
+ */
 export function AccessibilityCheckbox({setting, title}) {
     let [settingState, changeSettingState] = useState(getAccessibilitySetting(setting));
 
@@ -30,6 +44,15 @@ export function AccessibilityCheckbox({setting, title}) {
     )
 }
 
+/**
+ * Adjustable range slider for an accessibility setting.
+ *
+ * @param setting localStorage accessibility object key to change.
+ * @param title friendly name for the setting.
+ * @param min minimum selectable value.
+ * @param max maximum selectable value.
+ * @param labelFn formatter function for the label (takes a raw number, outputs a string or similar)
+ */
 export function AccessibilitySlider({setting, title, min, max, labelFn= (v) => v}) {
     let [settingState, changeSettingState] = useState(getAccessibilitySetting(setting));
 

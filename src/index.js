@@ -1,3 +1,10 @@
+/**
+ * Written by John Carrotta @ IMGD IDeaS Summer 2023.
+ * Site structure and styles designed by Madelyn Veccia and Claire Li.
+ *
+ * Entry point.
+ */
+
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle.js';
 
@@ -45,21 +52,21 @@ root.render(
             {
                 `
                     *::before {
-                        text-shadow: #FFFFFF 0 0 5px, #FFFFFF 0 0 10px;
+                        text-shadow: #FFFFFF 0 0 5px;
                         color: #000000 !important;
                         --pal-icon-filter: brightness(0.00);
                         --pal-blend2: 70%;
                         --pal-blend3: 50%;
                     }
                     *::after {
-                        text-shadow: #FFFFFF 0 0 5px, #FFFFFF 0 0 10px;
+                        text-shadow: #FFFFFF 0 0 5px;
                         color: #000000 !important;
                         --pal-icon-filter: brightness(0.00);
                         --pal-blend2: 70%;
                         --pal-blend3: 50%;
                     }
-                    * {
-                        text-shadow: #FFFFFF 0 0 5px, #FFFFFF 0 0 10px;
+                    *:not(.search-selected) {
+                        text-shadow: #FFFFFF 0 0 8px;
                         color: #000000 !important;
                         --pal-icon-filter: brightness(0.00);
                         --pal-blend2: 70%;

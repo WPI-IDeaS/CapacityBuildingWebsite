@@ -1,4 +1,10 @@
-import React, {useState, useEffect} from 'react';
+/**
+ * Planning section content generation functions.
+ *
+ * See Directory.js and Master.js for how these are used.
+ */
+
+import React from 'react';
 import {sn, sn_qtc, sn_topic} from "./SiteNode";
 import {setQuestionsColor} from "./QuestionsManager";
 import {addDefs, Def} from "./DefinitionManager";
@@ -370,17 +376,6 @@ function VsStaffingQuestions() {
                         <li>How will we recognize and build on the assets of the team?</li></ol>
                 </div>
         },
-        {id: "center", height: 1, text:
-                <div>
-                    <b>Center the People</b>
-                    <ol><li>Did we define the area of capacity building broadly enough to allow a range of individuals to see the value in participating and to identify an area of growth for themselves?</li>
-                        <li>Recognizing that different members of the team will have different levels of preparation and different areas of interest in this work, how will we allow for each member to grow to advance our thinking?</li>
-                        <li>How do we provide enough flexibility in our process to accommodate the different
-                            needs/passions/career paths of the team members?</li>
-                        <li>Are we asking for an appropriate level of work from the individual members?</li>
-                    </ol>
-                </div>
-        },
         {id: "design", height: 1, text:
                 <div>
                     <b>Focus on Design</b>
@@ -389,12 +384,23 @@ function VsStaffingQuestions() {
                     </ol>
                 </div>
         },
-        {id: "trust", height: 3, text:
+        {id: "trust", height: 1, text:
                 <div>
                     <b>Trust the Team</b>
                     <ol>
                         <li>How will we collaboratively make decisions?</li>
                         <li>How can we engage each member in ways that feel significant to that member?</li>
+                    </ol>
+                </div>
+        },
+        {id: "center", height: 3, text:
+                <div>
+                    <b>Center the People</b>
+                    <ol><li>Did we define the area of capacity building broadly enough to allow a range of individuals to see the value in participating and to identify an area of growth for themselves?</li>
+                        <li>Recognizing that different members of the team will have different levels of preparation and different areas of interest in this work, how will we allow for each member to grow to advance our thinking?</li>
+                        <li>How do we provide enough flexibility in our process to accommodate the different
+                            needs/passions/career paths of the team members?</li>
+                        <li>Are we asking for an appropriate level of work from the individual members?</li>
                     </ol>
                 </div>
         }
@@ -572,18 +578,6 @@ function BudgetingQuestions() {
                     <ol><li>How can roles be distributed to others to empower them, and what resources will they require?</li></ol>
                 </div>
         },
-        {id: "center", height: 1, text:
-                <div>
-                    <b>Center the People</b>
-                    <ol>
-                        <li>How do we make sure that the team members have the time and bandwidth to participate in this
-                            initiative?</li>
-                        <li>Have we recognized that different roles require different time and compensated these
-                            accordingly?</li>
-                        <li>Are the team members willing to participate? Eager to participate?</li>
-                    </ol>
-                </div>
-        },
         {id: "design", height: 1, text:
                 <div>
                     <b>Focus on Design</b>
@@ -594,13 +588,25 @@ function BudgetingQuestions() {
                     </ol>
                 </div>
         },
-        {id: "trust", height: 3, text:
+        {id: "trust", height: 1, text:
                 <div>
                     <b>Trust the Team</b>
                     <ol>
                         <li>Have we asked our team what roles they would like to play?</li>
                         <li>Have we built in enough flexibility in roles and processes that all can see value in
                             participating?</li>
+                    </ol>
+                </div>
+        },
+        {id: "center", height: 3, text:
+                <div>
+                    <b>Center the People</b>
+                    <ol>
+                        <li>How do we make sure that the team members have the time and bandwidth to participate in this
+                            initiative?</li>
+                        <li>Have we recognized that different roles require different time and compensated these
+                            accordingly?</li>
+                        <li>Are the team members willing to participate? Eager to participate?</li>
                     </ol>
                 </div>
         }
@@ -702,7 +708,17 @@ function BuildingQuestions() {
                     </ol>
                 </div>
         },
-        {id: "design", height: 1, text:
+        {id: "trust", height: 1, text:
+                <div>
+                    <b>Trust the Team</b>
+                    <ol>
+                        <li>How will we avoid a hierarchical structure so that all members feel equally capable of
+                            providing value?</li>
+                        <li>How will we demonstrate trust with each other?</li>
+                    </ol>
+                </div>
+        },
+        {id: "design", height: 3, text:
                 <div>
                     <b>Focus on Design</b>
                     <ol>
@@ -710,16 +726,6 @@ function BuildingQuestions() {
                             advancing the overall goals of the project?</li>
                         <li>Who has different perspectives/expertise/ways of thinking that will provide value to the
                             team?</li>
-                    </ol>
-                </div>
-        },
-        {id: "trust", height: 3, text:
-                <div>
-                    <b>Trust the Team</b>
-                    <ol>
-                        <li>How will we avoid a hierarchical structure so that all members feel equally capable of
-                            providing value?</li>
-                        <li>How will we demonstrate trust with each other?</li>
                     </ol>
                 </div>
         }

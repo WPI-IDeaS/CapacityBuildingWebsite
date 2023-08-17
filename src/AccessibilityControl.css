@@ -1,5 +1,5 @@
 .accessibility-title {
-    font-size: calc(x-large + var(--acc-size-offset));
+    font-size: calc(1.5em + var(--acc-size-offset));
     font-family: 'Lexend', sans-serif;
     font-weight: calc(normal + var(--acc-bold-offset));
 
@@ -8,7 +8,7 @@
 
 .accessibility-slide {
     margin: auto 5px auto 0;
-    font-size: calc(xx-large + var(--acc-size-offset));
+    font-size: calc(2em + var(--acc-size-offset));
 }
 
 .accessibility-slide::-webkit-slider-runnable-track {
@@ -34,7 +34,7 @@
 
 .accessibility-toggle-outer {
     margin: auto 0 auto 0;
-    font-size: calc(xx-large + var(--acc-size-offset));
+    font-size: calc(2em + var(--acc-size-offset));
 }
 
 .accessibility-toggle.form-check-input {

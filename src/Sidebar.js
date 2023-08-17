@@ -132,7 +132,7 @@ function Sidebar() {
             <div className="sidenav-title">
                 Quick Access
                 <div className="search">
-                    <img src={search} height="27px" style={{float: "left", filter: "var(--pal-icon-filter)"}}/>
+                    <img src={search} height="26px" style={{float: "left", filter: "var(--pal-icon-filter)", position: "relative", top: "14px"}}/>
                     <input onKeyUp={searchBar} onBlur={putNavAnimationBack} type="text" name="search" placeholder="Search sections..." />
                 </div>
             </div>

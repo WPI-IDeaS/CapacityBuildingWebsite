@@ -1,12 +1,16 @@
+/**
+ * "My Capacity Building" worksheet view
+ */
+
 import "./myCB.css"
 import {getQuestionsData} from "./QuestionsManager";
 import {getResponse, pageHasResponses} from "./UserDataManager";
 
 import PrintIcon from "./images/icons/print.svg";
-import {MentorThink, MentorAnswer} from "./MentorFace";
 import {HelpPopupButton} from "./DefinitionManager";
 
-
+// Small print-then-close script to attach to our print window.
+// Run by the window itself to guarantee css loads first.
 const printScript = `
     <script>
         window.print();
@@ -14,17 +18,20 @@ const printScript = `
     </script>
 `;
 
+/**
+ * Print the capacity building worksheet in a popup dialogue.
+ */
 function printCB() {
     const printContent = document.getElementById("cb-printable");
     const printWindow = window.open('', '', 'left=0,top=0,width=900,height=1000,toolbar=0,scrollbars=0,status=0');
 
     printWindow.document.write('<html lang="en"><head><title>Print Your Capacity Building</title>')
 
-    // Link to the CSS stylesheet
     printWindow.document.write('<link rel="preconnect" href="https://fonts.googleapis.com">');
     printWindow.document.write('<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin>');
     printWindow.document.write('<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@200;300;400;500;600&display=swap" rel="stylesheet">');
 
+    // We have to access the printing style from public since React won't give it an accessible path from src
     printWindow.document.write('<link rel="stylesheet" href="' + process.env.PUBLIC_URL + '/myCBPrinting.css" type="text/css"/>')
 
     printWindow.document.write('</head><body>')
@@ -37,6 +44,12 @@ function printCB() {
     printWindow.focus();
 }
 
+/**
+ * Responses entry for one questions panel.
+ *
+ * @param data an object from localStorage containing a question's page ID, page title, list of questions (text and
+ * response), and preferred header color
+ */
 function MyCBEntry({data}) {
     let index = 1;
     if (!pageHasResponses(data.pageId)) return "";
@@ -68,6 +81,11 @@ function MyCBEntry({data}) {
     );
 }
 
+/**
+ * My Capacity Building worksheet page with blurred backdrop. Meant to overlay the content window.
+ *
+ * @param children extraneous elements to inject inside (such as a close button from a previous page)
+ */
 function MyCB({children}) {
     let index = 1;
     return (

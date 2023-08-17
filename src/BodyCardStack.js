@@ -1,7 +1,20 @@
+/**
+ * Content card deck for main content pages.
+ */
+
 import React, {useEffect, useState} from 'react';
 import './Sketch3.css';
 import {Link} from "react-router-dom";
 
+/**
+ * Large body section deck with cards that are paged through one by one.
+ *
+ * @param globalTitle
+ * @param cardContents an array of JSX objects to display (1 per card).
+ * @param startingCard initial card index.
+ * @param previousStack path to previous "topic" stack.
+ * @param nextStack path to next "topic" stack.
+ */
 function BodyCardStack(globalTitle, cardContents, startingCard=0, previousStack=null, nextStack=null) {
 
     const [currentCard, setCurrentCard] = useState(startingCard); // In case card switching is in use
@@ -71,6 +84,7 @@ function BodyCardStack(globalTitle, cardContents, startingCard=0, previousStack=
         );
     }
 
+    // Ensure we return to the initial card on page change
     useEffect(() => {
         setCurrentCard(startingCard);
     }, [globalTitle, startingCard]);

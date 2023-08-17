@@ -1,4 +1,8 @@
+/**
+ * Color palette management system. Manipulates CSS variables.
+ */
 
+// Palettes recognized by name; "lock" is special and used for accessibility
 const palettes = {
     "green": {
         main: "green",
@@ -51,45 +55,38 @@ let isLocked = false;
 
 const root = document.querySelector(':root');
 
-function generateColorStrings() {
-    const rs = getComputedStyle(root);
-    for (const [name, pal] of Object.entries(palettes)) {
-        pal.string = (rs.getPropertyValue('--pal-' + name)).split('(').pop().split(')')[0];
-    }
-}
-
+/**
+ * Do color initialization here. For now, only the default green palette is set.
+ */
 function initializeColors() {
-    generateColorStrings();
     setPalette("green");
 }
 
-export function colorStringFor(thisColor) {
-    switch(thisColor) {
-        case "main":
-            return colorStringFor(currentPal.main);
-        case "accent":
-            return colorStringFor(currentPal.accent);
-        case "font":
-            return colorStringFor(currentPal.font);
-        case "link":
-            return colorStringFor(currentPal.link);
-        default:
-            return palettes[thisColor].string;
-    }
-}
-
+/**
+ * Set the palette to "lock"; can only be undone from the accessibility window.
+ * The previous palette is still remembered.
+ */
 export function lockPalette() {
     setPalette("lock");
 
     isLocked = true;
 }
 
+/**
+ * Unlock the palette and change it to what it otherwise would have been.
+ */
 export function unLockPalette() {
     isLocked = false;
 
     setPalette(currentPal["main"]);
 }
 
+/**
+ * Change the app's palette to the one with the given name.
+ * If currently locked, the new palette will be remembered but not yet applied.
+ *
+ * @param to the palette map key to get a palette from.
+ */
 export function setPalette(to) {
     const changeTo = palettes[to];
 
@@ -107,6 +104,11 @@ export function setPalette(to) {
     }
 }
 
+/**
+ * Get a palette by name (or otherwise, whichever is/would be applied by the current page)
+ * @param named the palette name to poll.
+ * @returns {*} the palette with the given name (or the current remembered one, if inapplicable)
+ */
 export function getPalette(named=null) {
     if(named == null) {
         return currentPal;
