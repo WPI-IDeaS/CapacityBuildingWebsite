@@ -14,7 +14,7 @@ import {getBookmarks, setAccessibleStyles} from "./UserDataManager";
 import {useEffect} from "react";
 
 // LEAVE TRUE IF DEPLOYING TO GH PAGES
-const USE_HASH = false;
+const USE_HASH = true;
 
 // Site directory: makeDirectory creates the subtree for each depth 1 page
 export const siteDirectory = [
